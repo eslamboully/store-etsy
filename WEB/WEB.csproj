@@ -1,0 +1,685 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="wwwroot" />
+      <Folder Include="wwwroot\dashboard\uploads\settings" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="BCrypt.Net-Next" Version="4.0.2" />
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.1">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
+    
+    <ItemGroup>
+        <ProjectReference Include="../Infrastructure/Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Areas\Dashboard\Views\Dashboard\Shared\_Aside.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Dashboard\Views\Dashboard\Shared\_Layout.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Dashboard\Pages\Admins\Index.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Dashboard\Index.ar.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.ar.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Dashboard\Index.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Shared\_Layout.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>_Layout.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Shared\_Aside.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>_Aside.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Admins\Index.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Admins\Create.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Controllers\AdminsController.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>AdminsController.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Admins\Edit.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Edit.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Users\Create.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Users\Index.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Users\Edit.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Edit.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Controllers\UsersController.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>UsersController.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Countries\Create.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\SharedResource.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>SharedResource.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Controllers\CountriesController.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>UsersController.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Countries\Index.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Countries\Edit.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Cities\Create.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Cities\Index.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Cities\Edit.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Controllers\CitiesController.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>UsersController.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\States\Create.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\States\Index.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\States\Edit.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Controllers\StatesController.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>UsersController.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Categories\Create.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Categories\Index.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Categories\Edit.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Controllers\TradeMarksController.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>UsersController.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\TradeMarks\Create.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\TradeMarks\Index.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\TradeMarks\Edit.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\ManuFacts\Create.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\ManuFacts\Index.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\ManuFacts\Edit.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Controllers\ManuFactsController.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>UsersController.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Shippings\Create.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Shippings\Index.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Shippings\Edit.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Controllers\ShippingsController.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>UsersController.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Malls\Create.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Malls\Index.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Malls\Edit.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Controllers\MallsController.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>UsersController.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Colors\Create.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Colors\Index.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Colors\Edit.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Controllers\ColorsController.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>UsersController.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Controllers\SizesController.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>UsersController.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Sizes\Create.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Sizes\Index.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Sizes\Edit.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Weights\Create.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Weights\Index.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Views\Weights\Edit.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Create.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas\Dashboard\Controllers\WeightsController.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>UsersController.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Resources\Areas\Dashboard\Views\Dashboard\Index.ar.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.ar.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Dashboard\Index.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Shared\_Layout.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>_Layout.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Shared\_Aside.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>_Aside.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Admins\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Admins\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Controllers\AdminsController.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>AdminsController.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Admins\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Users\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Users\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Users\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Controllers\UsersController.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>UsersController.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Countries\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\SharedResource.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>SharedResource.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Controllers\CountriesController.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>CountriesController.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Countries\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Countries\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Cities\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Cities\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Cities\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Cities\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Cities\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Cities\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Controllers\CitiesController.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>CitiesController.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\States\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\States\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\States\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\States\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\States\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\States\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Controllers\StatesController.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>StatesController.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Categories\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Categories\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Categories\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Categories\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Categories\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Categories\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Controllers\TradeMarksController.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>TradeMarksController.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\TradeMarks\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\TradeMarks\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\TradeMarks\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\TradeMarks\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\TradeMarks\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\TradeMarks\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\ManuFacts\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\ManuFacts\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\ManuFacts\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\ManuFacts\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\ManuFacts\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\ManuFacts\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Controllers\ManuFactsController.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ManuFactsController.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Shippings\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Shippings\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Shippings\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Shippings\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Shippings\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Shippings\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Controllers\ShippingsController.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ShippingsController.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Malls\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Malls\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Malls\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Malls\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Malls\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Malls\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Controllers\MallsController.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>MallsController.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Colors\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Colors\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Colors\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Colors\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Colors\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Colors\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Controllers\ColorsController.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ColorsController.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Controllers\SizesController.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>SizesController.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Sizes\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Sizes\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Sizes\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Sizes\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Sizes\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Sizes\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Weights\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Weights\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Weights\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Weights\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Weights\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Views\Weights\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+      </Compile>
+      <Compile Update="Resources\Areas\Dashboard\Controllers\WeightsController.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>WeightsController.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+</Project>

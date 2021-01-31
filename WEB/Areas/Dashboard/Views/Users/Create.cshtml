@@ -1,0 +1,105 @@
+﻿@model Core.Areas.Dashboard.Entities.User
+@{
+    Layout = "_Layout";
+    string appLocale = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+}
+
+<!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">@Localizer["users"]</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-@(appLocale == "ar" ? "left" : "right")">
+              <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Dashboard" asp-area="Dashboard">@Localizer["dashboard"]</a></li>
+              <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Users" asp-area="Dashboard">@Localizer["users"]</a></li>
+              <li class="breadcrumb-item active">@Localizer["create"]</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+                  <!-- left column -->
+                  <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                      <div class="card-header">
+                        <h3 class="card-title">@Localizer["add_new"]</h3>
+                      </div>
+                      <!-- /.card-header -->
+                      <!-- form start -->
+                      <span asp-validation-summary="All"></span>
+                      <form asp-action="Create" asp-controller="Users" asp-area="Dashboard" method="post" role="form">
+                        <div class="card-body">
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">@Localizer["first_name"]</label>
+                            <input type="text" asp-for="FirstName" class="form-control" id="exampleInputEmail1" placeholder="@Localizer["first_name"]">
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">@Localizer["last_name"]</label>
+                            <input type="text" asp-for="LastName" class="form-control" id="exampleInputEmail1" placeholder="@Localizer["last_name"]">
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">@Localizer["email"]</label>
+                            <input type="email" asp-for="Email" class="form-control" id="exampleInputEmail1" placeholder="@Localizer["email"]">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">@Localizer["phone"]</label>
+                            <input type="text" asp-for="Phone" class="form-control" id="exampleInputEmail1" placeholder="@Localizer["phone"]">
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">@Localizer["address"]</label>
+                            <input type="text" asp-for="Address" class="form-control" id="exampleInputEmail1" placeholder="@Localizer["address"]">
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputPassword1">@Localizer["password"]</label>
+                            <input type="password" asp-for="Password" class="form-control" id="exampleInputPassword1" placeholder="@Localizer["password"]">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputPassword1">@Localizer["type"]</label>
+                            <select asp-for="Type" class="form-control">
+                              <option value="1">@Localizer["user"]</option>
+                              <option value="2">@Localizer["shop"]</option>
+                              <option value="3">@Localizer["company"]</option>
+                            </select>
+                            <span asp-validation-for="Type" class="text-danger"></span>
+                          </div>
+                        </div>
+                        <!-- /.card-body -->
+        
+                        <div class="card-footer">
+                          <button type="submit" class="btn btn-primary">@Localizer["save_info"]</button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- /.card -->
+                  </div>
+                  <!--/.col (left) -->
+                </div>
+      </div>
+    </section>
+<!-- /.content -->
+
+@section css
+{
+
+}
+
+@section js
+{
+  
+}

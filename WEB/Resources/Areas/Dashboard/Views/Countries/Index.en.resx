@@ -1,0 +1,35 @@
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="add_new" xml:space="preserve">
+        <value>Add New</value>
+    </data>
+    <data name="countries" xml:space="preserve">
+        <value>Admins</value>
+    </data>
+    <data name="dashboard" xml:space="preserve">
+        <value>Dashboard</value>
+    </data>
+    <data name="email" xml:space="preserve">
+        <value>Email</value>
+    </data>
+    <data name="first_name" xml:space="preserve">
+        <value>First Name</value>
+    </data>
+    <data name="last_name" xml:space="preserve">
+        <value>Last Name</value>
+    </data>
+    <data name="operations" xml:space="preserve">
+        <value>Operations</value>
+    </data>
+</root>

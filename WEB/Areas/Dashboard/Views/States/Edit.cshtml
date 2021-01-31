@@ -1,0 +1,145 @@
+﻿@model WEB.Areas.Dashboard.ViewModels.StateViewModel
+@{
+    Layout = "_Layout";
+    string appLocale = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+}
+
+<!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">@Localizer["states"]</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-@(appLocale == "ar" ? "left" : "right")">
+              <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Dashboard" asp-area="Dashboard">@Localizer["dashboard"]</a></li>
+              <li class="breadcrumb-item"><a asp-action="Index" asp-controller="States" asp-area="Dashboard">@Localizer["states"]</a></li>
+              <li class="breadcrumb-item active">@Localizer["edit"]</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+                  <!-- left column -->
+                  <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card">
+                      <div class="card-header">
+                        <h3 class="card-title">@Localizer["edit"]</h3>
+                      </div>
+                      <!-- /.card-header -->
+                      <!-- form start -->
+                      <span asp-validation-summary="All"></span>
+                      <form asp-action="Edit" asp-controller="States" asp-area="Dashboard" method="post" role="form" enctype="multipart/form-data">
+                        <div class="card-body">
+                          <div class="card">
+                            <div class="card-header d-flex p-0">
+                              <ul class="nav nav-pills ml-auto p-2">
+                                @{ Boolean first = true; }
+                                @foreach (var locale in LocalizationOptions.Value.SupportedCultures)
+                                {
+                                  <li class="nav-item m-2"><a class="nav-link @(first ? "active" : "")" href="#@locale.Name" data-toggle="tab">@locale.NativeName</a></li>
+                                  first = false;
+                                }
+                              </ul>
+                            </div><!-- /.card-header -->
+                            <div class="card-body">
+                              <div class="tab-content">
+                                @{
+                                  Boolean second = true;
+                                  var i = 0;
+                                }
+                                @foreach (var locale in LocalizationOptions.Value.SupportedCultures)
+                                {
+                                  <div class="tab-pane @(second ? "active" : "")" id="@locale.Name">
+                                    <div class="form-group">
+                                      <label for="exampleInputEmail1">@Localizer["title"] (@locale.EnglishName)</label>
+                                      <input type="text" asp-for="Translations[i].Title" class="form-control" id="exampleInputEmail1" placeholder="@Localizer["title"]">
+                                      <span asp-validation-for="Translations[i].Title" class="text-danger"></span>
+                                    </div>
+                                  </div>
+                                  <input type="hidden" asp-for="Translations[i].Locale" value="@locale.Name">
+                                  second = false;
+                                  i++;
+                                }
+                              </div>
+                              <hr/>
+                              <div class="form-group">
+                                <label>@Localizer["countries"]</label>
+                                <select asp-for="CountryId" class="form-control">
+                                  <option value="">@Localizer["choose_country"]</option>
+                                  @foreach (var country in Model.Countries)
+                                  {
+                                    <option value="@country.Id">@country.Translatable(appLocale).Title</option>
+                                  }
+                                </select>
+                                <span asp-validation-for="CountryId" class="text-danger"></span>
+                              </div>
+                              <div class="form-group">
+                                  <label>@Localizer["cities"]</label>
+                                <select asp-for="CityId" class="form-control">
+                                  @foreach (var city in Model.Cities)
+                                  {
+                                    <option value="@city.Id">@city.Translatable(appLocale).Title</option>
+                                  }
+                                </select>
+                                  <span asp-validation-for="CityId" class="text-danger"></span>
+                                </div>
+                                <!-- /.tab-content -->
+                              </div><!-- /.card-body -->
+                          </div>
+                          @* <div class="form-group"> *@
+                          @*   <label for="exampleInputEmail1">@Localizer["first_name"]</label> *@
+                          @*   <input type="text" asp-for="FirstName" class="form-control" id="exampleInputEmail1" placeholder="@Localizer["first_name"]"> *@
+                          @*   <span asp-validation-for="FirstName" class="text-danger"></span> *@
+                          @* </div> *@
+                        </div>
+                        <!-- /.card-body -->
+        
+                        <div class="card-footer">
+                          <button type="submit" class="btn btn-primary">@Localizer["save_info"]</button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- /.card -->
+                  </div>
+                  <!--/.col (left) -->
+                </div>
+      </div>
+    </section>
+<!-- /.content -->
+
+@section css
+{
+
+}
+
+@section js
+{
+  <script>
+    $(document).on("change","select[name=CountryId]",function(e) {
+      let countryId = $(this).val();
+      let citySelector = $("select[name=CityId]");
+      $.ajax({
+        url : `/dashboard/states/specific-cities/${countryId}`,
+        method: "post",
+        dataType: "json",
+        data: {CountryId: countryId},
+        success: function (data)
+        {
+          citySelector.html("");
+          data.forEach(function(city) {
+            citySelector.append(`<option value="${city.id}">${city.title}</option>`);
+          });
+        }
+      });
+    });
+  </script>
+}

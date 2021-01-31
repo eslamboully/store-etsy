@@ -1,0 +1,50 @@
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="Email_Required" xml:space="preserve">
+        <value>البريد الالكتروني مطلوب</value>
+    </data>
+    <data name="First_Name_Required" xml:space="preserve">
+        <value>الاسم الاول مطلوب</value>
+    </data>
+    <data name="Last_Name_Required" xml:space="preserve">
+        <value>الاسم الاخير مطلوب</value>
+    </data>
+    <data name="Password_Required" xml:space="preserve">
+        <value>كلمة المرور مطلوبة</value>
+    </data>
+    <data name="Exist_Email" xml:space="preserve">
+        <value>البريد الالكتروني موجود من قبل</value>
+    </data>
+    <data name="Phone_Required" xml:space="preserve">
+        <value>الهاتف مطلوب</value>
+    </data>
+    <data name="Address_Required" xml:space="preserve">
+        <value>العنوان مطلوب</value>
+    </data>
+    <data name="Mob_Required" xml:space="preserve">
+        <value>رمز الدولة مطلوب</value>
+    </data>
+    <data name="Code_Required" xml:space="preserve">
+        <value>كود الدولة مطلوب</value>
+    </data>
+    <data name="Country_Required" xml:space="preserve">
+        <value>البلد مطلوبة</value>
+    </data>
+    <data name="State_Required" xml:space="preserve">
+        <value>المنطقة / الحي مطلوب</value>
+    </data>
+    <data name="City_Required" xml:space="preserve">
+        <value>المدينة / المحافظة مطلوبة</value>
+    </data>
+</root>

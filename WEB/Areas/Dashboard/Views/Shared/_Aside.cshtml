@@ -1,0 +1,343 @@
+﻿@{
+  string appLocale = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+}
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <img src="~/dashboard/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">@Localizer["control_panel"]</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar" style="direction: @(appLocale=="ar" ? "rtl" : "ltr")">
+      <div style="direction: @(appLocale=="ar" ? "rtl" : "ltr")">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="https://secure.gravatar.com/avatar/5ffa2a1ffeb767c60ab7e1052e385d5c?s=52&d=mm&r=g" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="#" class="d-block">@User.Identity.Name</a>
+          </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+            <li class="nav-item has-treeview">
+              <a asp-action="Index" asp-controller="Dashboard" asp-area="Dashboard" class="nav-link">
+                <i class="nav-icon fa fa-dashboard"></i>
+                <p>
+                  @Localizer["main"]
+                </p>
+              </a>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-lock"></i>
+                <p>
+                  @Localizer["admins"]
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a asp-action="Index" asp-controller="Admins" asp-area="Dashboard" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>@Localizer["admins"]</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a asp-action="Create" asp-controller="Admins" asp-area="Dashboard" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>@Localizer["add_new"]</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fa fa-user-o"></i>
+                  <p>
+                    @Localizer["users"]
+                    <i class="right fa fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a asp-action="Index" asp-controller="Users" asp-area="Dashboard" class="nav-link">
+                      <i class="fa fa-circle-o nav-icon"></i>
+                      <p>@Localizer["users"]</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a asp-action="Create" asp-controller="Users" asp-area="Dashboard" class="nav-link">
+                      <i class="fa fa-circle-o nav-icon"></i>
+                      <p>@Localizer["add_new"]</p>
+                    </a>
+                  </li>
+                </ul>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-flag"></i>
+                <p>
+                  @Localizer["countries"]
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a asp-action="Index" asp-controller="Countries" asp-area="Dashboard" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>@Localizer["countries"]</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a asp-action="Create" asp-controller="Countries" asp-area="Dashboard" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>@Localizer["add_new"]</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-flag-checkered"></i>
+                <p>
+                  @Localizer["cities"]
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a asp-action="Index" asp-controller="Cities" asp-area="Dashboard" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>@Localizer["cities"]</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a asp-action="Create" asp-controller="Cities" asp-area="Dashboard" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>@Localizer["add_new"]</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-flag-o"></i>
+                <p>
+                  @Localizer["states"]
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a asp-action="Index" asp-controller="States" asp-area="Dashboard" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>@Localizer["states"]</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a asp-action="Create" asp-controller="States" asp-area="Dashboard" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>@Localizer["add_new"]</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-list-ol"></i>
+                <p>
+                  @Localizer["categories"]
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a asp-action="Index" asp-controller="Categories" asp-area="Dashboard" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>@Localizer["categories"]</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a asp-action="Create" asp-controller="Categories" asp-area="Dashboard" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>@Localizer["add_new"]</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-trademark"></i>
+                <p>
+                  @Localizer["trademarks"]
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a asp-action="Index" asp-controller="TradeMarks" asp-area="Dashboard" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>@Localizer["trademarks"]</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a asp-action="Create" asp-controller="TradeMarks" asp-area="Dashboard" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>@Localizer["add_new"]</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fa fa-rocket"></i>
+                  <p>
+                    @Localizer["manufacts"]
+                    <i class="right fa fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a asp-action="Index" asp-controller="ManuFacts" asp-area="Dashboard" class="nav-link">
+                      <i class="fa fa-circle-o nav-icon"></i>
+                      <p>@Localizer["manufacts"]</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a asp-action="Create" asp-controller="ManuFacts" asp-area="Dashboard" class="nav-link">
+                      <i class="fa fa-circle-o nav-icon"></i>
+                      <p>@Localizer["add_new"]</p>
+                    </a>
+                  </li>
+                </ul>
+            </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-truck"></i>
+              <p>
+                @Localizer["shippings"]
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a asp-action="Index" asp-controller="Shippings" asp-area="Dashboard" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>@Localizer["shippings"]</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a asp-action="Create" asp-controller="Shippings" asp-area="Dashboard" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>@Localizer["add_new"]</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-building"></i>
+              <p>
+                @Localizer["malls"]
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a asp-action="Index" asp-controller="Malls" asp-area="Dashboard" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>@Localizer["malls"]</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a asp-action="Create" asp-controller="Malls" asp-area="Dashboard" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>@Localizer["add_new"]</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-paint-brush"></i>
+              <p>
+                @Localizer["colors"]
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a asp-action="Index" asp-controller="Colors" asp-area="Dashboard" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>@Localizer["colors"]</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a asp-action="Create" asp-controller="Colors" asp-area="Dashboard" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>@Localizer["add_new"]</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-sliders"></i>
+              <p>
+                @Localizer["sizes"]
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a asp-action="Index" asp-controller="Sizes" asp-area="Dashboard" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>@Localizer["sizes"]</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a asp-action="Create" asp-controller="Sizes" asp-area="Dashboard" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>@Localizer["add_new"]</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fa fa-archive"></i>
+                  <p>
+                    @Localizer["weights"]
+                    <i class="right fa fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a asp-action="Index" asp-controller="Weights" asp-area="Dashboard" class="nav-link">
+                      <i class="fa fa-circle-o nav-icon"></i>
+                      <p>@Localizer["weights"]</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a asp-action="Create" asp-controller="Weights" asp-area="Dashboard" class="nav-link">
+                      <i class="fa fa-circle-o nav-icon"></i>
+                      <p>@Localizer["add_new"]</p>
+                    </a>
+                  </li>
+                </ul>
+            </li>
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+    </div>
+    <!-- /.sidebar -->
+  </aside>

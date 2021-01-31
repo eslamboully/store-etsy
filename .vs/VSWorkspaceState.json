@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Infrastructure",
+    "\\Infrastructure\\Data",
+    "\\WEB",
+    "\\WEB\\Areas",
+    "\\WEB\\Areas\\Dashboard",
+    "\\WEB\\Resources",
+    "\\WEB\\Resources\\Areas",
+    "\\WEB\\Resources\\Areas\\Dashboard",
+    "\\WEB\\Resources\\Areas\\Dashboard\\Controllers"
+  ],
+  "SelectedNode": "\\WEB\\Resources\\Areas\\Dashboard\\Controllers\\UsersController.ar.resx",
+  "PreviewInSolutionExplorer": false
+}

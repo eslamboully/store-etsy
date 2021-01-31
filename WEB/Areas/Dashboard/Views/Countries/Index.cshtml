@@ -1,0 +1,133 @@
+﻿@model System.Collections.Generic.List<Core.Areas.Dashboard.Entities.Country>
+@{
+    Layout = "_Layout";
+    string appLocale = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+    ViewData["Title"] = "Store | Home";
+}
+
+<!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">@Localizer["countries_table"]</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-@(appLocale == "ar" ? "left" : "right")">
+              <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Dashboard" asp-area="Dashboard">@Localizer["dashboard"]</a></li>
+              <li class="breadcrumb-item active">@Localizer["countries"]</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+                      <div class="col-12">
+                        <div class="card">
+                          <div class="card-header">
+                            <a asp-action="Create" asp-controller="Countries" asp-area="Dashboard" class="btn btn-success"><i class="fa fa-plus"></i> @Localizer["add_new"]</a>
+                            <a href="" class="btn btn-info btn-md" onclick="window.print()"><i class="fa fa-print"></i> @Localizer["print"] </a>
+                            <a href="" class="btn btn-primary btn-md"><i class="fa fa-plus"></i> @Localizer["excel"] </a>
+                            <a href="" class="btn btn-default btn-md"><i class="fa fa-refresh"></i></a>
+                            <a href="" class="btn btn-danger btn-md"><i class="fa fa-trash"></i> @Localizer["delete_all"] </a>
+                          </div>
+                          <!-- /.card-header -->
+                          <div class="card-body">
+                            @if (Model.Count == 0)
+                            {
+                              <h1>@Localizer["no_data"]</h1>
+                            }
+                            else
+                            {
+                              @if (TempData["msg"] != null)
+                            {
+                              <div class="alert alert-success">@TempData["msg"]</div>
+                            }
+                            <table id="async-table" class="table table-bordered table-hover">
+                              <thead>
+                              <tr>
+                                <th>#</th>
+                                <th>@Localizer["title"]</th>
+                                <th>@Localizer["mob"]</th>
+                                <th>@Localizer["code"]</th>
+                                <th>@Localizer["logo"]</th>
+                                <th>@Localizer["operations"]</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              @foreach (var row in Model)
+                              {
+                                <tr>
+                                  <td>@row.Id</td>
+                                  <td>@row.Translatable(appLocale).Title</td>
+                                  <td>@row.Mob</td>
+                                  <td>@row.Code</td>
+                                  <td><img src="~/dashboard/uploads/countries/@row.Logo" style="width: 70px;height: 70px;border-radius: 11px;"></td>
+                                  <td>
+                                    <form asp-action="Delete" asp-route-id="@row.Id" method="post">
+                                      <a asp-action="Edit" asp-route-id="@row.Id" class="btn btn-success"><i class="fa fa-edit"></i></a>
+                                      <button type="submit" onclick="return confirm('Are You Sure ?')" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    </form>
+                                  </td>
+                                </tr>
+                              }
+                              </tbody>
+                              <tfoot>
+                              <tr>
+                                <th>#</th>
+                                <th>@Localizer["title"]</th>
+                                <th>@Localizer["mob"]</th>
+                                <th>@Localizer["code"]</th>
+                                <th>@Localizer["logo"]</th>
+                                <th>@Localizer["operations"]</th>
+                              </tr>
+                              </tfoot>
+                            </table>
+                            }
+                          </div>
+                          <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                      <!-- /.card -->
+                      </div>
+                      <!-- /.col -->
+                    </div>
+      </div>
+    </section>
+<!-- /.content -->
+
+@section css
+{
+    <link rel="stylesheet" href="~/dashboard/plugins/datatables/dataTables.bootstrap4.css">
+}
+
+@section js
+{
+  <script src="~/dashboard/plugins/datatables/jquery.dataTables.js"></script>
+  <script src="~/dashboard/plugins/datatables/dataTables.bootstrap4.js"></script>
+  
+  <script>
+    $(function () {
+      $('#async-table').DataTable({
+          "language": {
+              "paginate": {
+                  "next": "Next",
+                  "previous" : "Previous"
+              }
+          },
+        "info" : false,
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": false,
+        "autoWidth": false
+      });
+    });
+  </script>
+  
+}
