@@ -133,10 +133,6 @@ namespace Infrastructure.Data
         // Weights
         public DbSet<Weight> Weights { get; set; }
         public DbSet<WeightTranslation> WeightTranslations { get; set; }
-        // Products
-        public DbSet<Product> Products { get; set; }
-        public DbSet<ProductTranslation> ProductTranslations { get; set; }
-
         // Settings
         public DbSet<Setting> Settings { get; set; }
         public DbSet<SettingTranslation> SettingTranslations { get; set; }

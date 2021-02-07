@@ -2,6 +2,7 @@
 	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=0514C647_002D62FD_002D47CB_002DB51A_002D2C09A9308CB0_002Fd_003AAreas_002Fd_003ADashboard_002Fd_003AEntities_002Ff_003AAdmin_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Core_002FResources_002FSharedResource/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FControllers_002FAdminsController/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FControllers_002FCategoriesController/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FControllers_002FCitiesController/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FControllers_002FColorsController/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FControllers_002FCountriesController/@EntryIndexedValue">False</s:Boolean>
