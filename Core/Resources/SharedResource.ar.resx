@@ -41,4 +41,10 @@
     <data name="Country_Required" xml:space="preserve">
         <value>البلد مطلوبة</value>
     </data>
+    <data name="Price_Required" xml:space="preserve">
+        <value>السعر مطلوب</value>
+    </data>
+    <data name="SizeString_Required" xml:space="preserve">
+        <value>المقاس مطلوب</value>
+    </data>
 </root>

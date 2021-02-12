@@ -7,6 +7,7 @@ namespace Core.Areas.Dashboard.Entities
     {
         public int Id { get; set; }
         public string Degree { get; set; }
+        public virtual List<Product> Products { get; set; }
         public virtual IList<ColorTranslation> Translations { get; set; }
         
         public ColorTranslation Translatable(string locale)

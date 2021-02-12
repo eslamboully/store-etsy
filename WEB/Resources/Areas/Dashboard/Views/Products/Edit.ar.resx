@@ -39,24 +39,24 @@
         <value>حفظ البيانات</value>
     </data>
     <data name="logo" xml:space="preserve">
-        <value>صورة القسم</value>
+        <value>شعار الدولة</value>
     </data>
-    <data name="choose_country" xml:space="preserve">
-        <value>اختر البلد</value>
+    <data name="edit" xml:space="preserve">
+        <value>تعديل</value>
     </data>
     <data name="cities" xml:space="preserve">
-        <value>المحافظات / المدن</value>
+        <value>المدن / المحافظات</value>
     </data>
-    <data name="states" xml:space="preserve">
-        <value>الاحياء / المناطق</value>
+    <data name="choose_country" xml:space="preserve">
+        <value>اختر الدولة</value>
     </data>
-    <data name="category" xml:space="preserve">
-        <value>القسم الرئيسي</value>
+    <data name="words" xml:space="preserve">
+        <value>الكلمات الدلالية</value>
     </data>
     <data name="categories" xml:space="preserve">
         <value>الاقسام</value>
     </data>
-    <data name="words" xml:space="preserve">
-        <value>الكلمات الدلالية</value>
+    <data name="category" xml:space="preserve">
+        <value>القسم الرئيسي</value>
     </data>
 </root>

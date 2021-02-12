@@ -1,0 +1,99 @@
+﻿@{
+    Layout = "_Layout";
+    string appLocale = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+    ViewData["Title"] = "Store | Home";
+}
+
+<!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">@Localizer["categories_table"]</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-@(appLocale == "ar" ? "left" : "right")">
+              <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Dashboard" asp-area="Dashboard">@Localizer["dashboard"]</a></li>
+              <li class="breadcrumb-item active">@Localizer["categories"]</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+                      <div class="col-12">
+                        <div class="card">
+                          <div class="card-header changable-buttons">
+                            
+                          </div>
+                          <!-- /.card-header -->
+                          <div class="card-body">
+                            @if (TempData["msg"] != null)
+                            {
+                              <div class="alert alert-success">@TempData["msg"]</div>
+                            }
+                            <div id="jstree_categories_div"></div>
+                          </div>
+                          <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                      <!-- /.card -->
+                      </div>
+                      <!-- /.col -->
+                    </div>
+      </div>
+    </section>
+<!-- /.content -->
+
+@section css
+{
+    <link rel="stylesheet" href="~/dashboard/dist/jstree/dist/themes/default/style.min.css" />
+}
+
+@section js
+{
+  <script src="~/dashboard/dist/jstree/dist/jstree.min.js"></script>
+  <script>
+    $(document).ready(function(e) {
+          $.ajax({
+            url : `/dashboard/categories/get-categories`,
+            method: "post",
+            dataType: "json",
+            data: {},
+            success: function (data)
+            {
+              // start on success
+              if (data.length > 0) {
+                $('#jstree_categories_div').jstree({ 'core' : {
+                  'data' : data
+                }});
+              } 
+              else 
+              {
+                $('.card-body').html(`<h1>${'@Localizer["no_data"]'}</h1>`);
+              }
+              // end on success
+            }// end of function success
+          });
+        });
+    
+    // on click on node
+    $('#jstree_categories_div').on('changed.jstree', function (e, data) {
+        let buttonsDiv = $(".changable-buttons");
+        buttonsDiv.html(``);
+        buttonsDiv.append(`
+          <form action="/dashboard/categories/delete/${data.selected}" method="post">
+          <a href="/dashboard/categories/edit/${data.selected}" class="btn btn-success"><i class="fa fa-edit"></i> ${'@Localizer["edit"]'}</a>
+          <button type="submit" onclick="return confirm('Are you sure ?')" class="btn btn-danger"><i class="fa fa-trash"></i> ${'@Localizer["delete"]'}</button>
+          </form>
+        `);
+        
+        console.log(data.selected);
+      });
+  </script>
+}

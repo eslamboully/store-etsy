@@ -83,6 +83,12 @@
                               </div>
                               <hr/>
                               <div class="form-group">
+                                <label>@Localizer["logo"]</label>
+                                <img src="~/dashboard/uploads/categories/@Model.PhotoName" style="width: 70px;height: 70px;border-radius: 11px;">
+                                <input type="file" asp-for="Photo" class="form-control" id="exampleInputEmail1" placeholder="@Localizer["logo"]">
+                                <span asp-validation-for="Photo" class="text-danger"></span>
+                              </div>
+                              <div class="form-group">
                                 <label>@Localizer["category"]</label>
                                 <input type="hidden" class="parentid" asp-for="ParentId" value="@Model.ParentId">
                                 <div id="jstree_categories_div"></div>

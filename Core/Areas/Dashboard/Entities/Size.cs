@@ -6,6 +6,7 @@ namespace Core.Areas.Dashboard.Entities
     public class Size
     {
         public int Id { get; set; }
+        public virtual List<Product> Products { get; set; }
         public virtual IList<SizeTranslation> Translations { get; set; }
         
         public SizeTranslation Translatable(string locale)

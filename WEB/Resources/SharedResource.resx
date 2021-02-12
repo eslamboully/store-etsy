@@ -54,4 +54,10 @@
     <data name="City_Required" xml:space="preserve">
         <value />
     </data>
+    <data name="Price_Required" xml:space="preserve">
+        <value />
+    </data>
+    <data name="SizeString_Required" xml:space="preserve">
+        <value />
+    </data>
 </root>

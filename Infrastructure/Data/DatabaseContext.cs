@@ -13,7 +13,7 @@ namespace Infrastructure.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.UseCollation("Latin1_General_100_CI_AI_SC_UTF8");
+            // modelBuilder.UseCollation("Latin1_General_100_CI_AI_SC_UTF8");
             // Countries
             modelBuilder.Entity<Country>().HasMany(c => c.Translations)
                 .WithOne(c => c.Country)
@@ -89,6 +89,13 @@ namespace Infrastructure.Data
                 .WithOne(c => c.Weight)
                 .HasForeignKey(c => c.WeightId)
                 .OnDelete(DeleteBehavior.Cascade);
+            // Products
+            modelBuilder.Entity<Product>().HasMany(c => c.Translations)
+                .WithOne(c => c.Product)
+                .HasForeignKey(c => c.ProductId)
+                .OnDelete(DeleteBehavior.Cascade);
+            // modelBuilder.Entity<Product>().HasMany(c => c.Colors)
+            //     .WithMany(c => c.Products);
             // Settings
             modelBuilder.Entity<Setting>().HasMany(c => c.Translations)
                 .WithOne(c => c.Setting)
@@ -133,6 +140,9 @@ namespace Infrastructure.Data
         // Weights
         public DbSet<Weight> Weights { get; set; }
         public DbSet<WeightTranslation> WeightTranslations { get; set; }
+        // Products
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductTranslation> ProductTranslations { get; set; }
         // Settings
         public DbSet<Setting> Settings { get; set; }
         public DbSet<SettingTranslation> SettingTranslations { get; set; }

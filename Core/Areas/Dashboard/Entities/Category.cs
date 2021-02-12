@@ -7,6 +7,7 @@ namespace Core.Areas.Dashboard.Entities
     {
         public int Id { get; set; }
         public int? ParentId { get; set; }
+        public string Photo { get; set; }
         public virtual Category Parent { get; set; }
         public virtual IList<CategoryTranslation> Translations { get; set; }
         public virtual IList<Category> Childs { get; set; }

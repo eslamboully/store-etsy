@@ -1,4 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -11,52 +18,52 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="add_new" xml:space="preserve">
-        <value>اضف جديد</value>
-    </data>
     <data name="countries" xml:space="preserve">
-        <value>الدول</value>
+        <value />
+    </data>
+    <data name="edit" xml:space="preserve">
+        <value />
     </data>
     <data name="title" xml:space="preserve">
-        <value>العنوان</value>
+        <value />
     </data>
     <data name="description" xml:space="preserve">
-        <value>الوصف</value>
+        <value />
     </data>
     <data name="dashboard" xml:space="preserve">
-        <value>الرئيسية</value>
+        <value />
     </data>
     <data name="create" xml:space="preserve">
-        <value>اضف جديد</value>
+        <value />
     </data>
     <data name="mob" xml:space="preserve">
-        <value>رمز الدولة</value>
+        <value />
     </data>
     <data name="code" xml:space="preserve">
-        <value>كود الدولة</value>
+        <value />
     </data>
     <data name="save_info" xml:space="preserve">
-        <value>حفظ البيانات</value>
+        <value />
     </data>
     <data name="logo" xml:space="preserve">
-        <value>صورة القسم</value>
+        <value />
     </data>
-    <data name="choose_country" xml:space="preserve">
-        <value>اختر البلد</value>
+    <data name="edit" xml:space="preserve">
+        <value />
     </data>
     <data name="cities" xml:space="preserve">
-        <value>المحافظات / المدن</value>
+        <value />
     </data>
-    <data name="states" xml:space="preserve">
-        <value>الاحياء / المناطق</value>
-    </data>
-    <data name="category" xml:space="preserve">
-        <value>القسم الرئيسي</value>
+    <data name="choose_country" xml:space="preserve">
+        <value />
     </data>
     <data name="categories" xml:space="preserve">
-        <value>الاقسام</value>
+        <value />
     </data>
     <data name="words" xml:space="preserve">
-        <value>الكلمات الدلالية</value>
+        <value />
+    </data>
+    <data name="category" xml:space="preserve">
+        <value />
     </data>
 </root>

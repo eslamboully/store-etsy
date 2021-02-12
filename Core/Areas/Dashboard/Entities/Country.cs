@@ -16,6 +16,7 @@ namespace Core.Areas.Dashboard.Entities
         public IList<CountryTranslation> Translations { get; set; }
         public IList<City> Cities { get; set; }
         public IList<State> States { get; set; }
+        public virtual List<Product> Products { get; set; }
         public CountryTranslation Translatable(string locale)
         {
             var row = Translations.SingleOrDefault(t => t.Locale == locale);

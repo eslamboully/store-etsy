@@ -37,7 +37,7 @@ namespace WEB
                 app.UseDeveloperExceptionPage();
             }
             
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseRouting();
             app.UseRequestLocalization();
             app.UseAuthentication();

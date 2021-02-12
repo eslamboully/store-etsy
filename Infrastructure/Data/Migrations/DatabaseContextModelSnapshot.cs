@@ -16,7 +16,6 @@ namespace Infrastructure.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .UseIdentityColumns()
-                .HasAnnotation("Relational:Collation", "Latin1_General_100_CI_AI_SC_UTF8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.1");
 
@@ -33,6 +32,21 @@ namespace Infrastructure.Data.Migrations
                     b.HasIndex("RolesId");
 
                     b.ToTable("AdminRole");
+                });
+
+            modelBuilder.Entity("ColorProduct", b =>
+                {
+                    b.Property<int>("ColorsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ColorsId", "ProductsId");
+
+                    b.HasIndex("ProductsId");
+
+                    b.ToTable("ColorProduct");
                 });
 
             modelBuilder.Entity("Core.Areas.Dashboard.Entities.Admin", b =>
@@ -86,6 +100,9 @@ namespace Infrastructure.Data.Migrations
 
                     b.Property<int?>("ParentId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Photo")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -353,6 +370,84 @@ namespace Infrastructure.Data.Migrations
                     b.HasIndex("ManuFactId");
 
                     b.ToTable("ManuFactTranslations");
+                });
+
+            modelBuilder.Entity("Core.Areas.Dashboard.Entities.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("EndOfferAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Photo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<double>("PriceOffer")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Reason")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SizeString")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SizeTranslationId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StartOfferAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte>("Status")
+                        .HasColumnType("tinyint");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("SizeTranslationId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("Core.Areas.Dashboard.Entities.ProductTranslation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Locale")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductTranslations");
                 });
 
             modelBuilder.Entity("Core.Areas.Dashboard.Entities.Role", b =>
@@ -675,6 +770,36 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("WeightTranslations");
                 });
 
+            modelBuilder.Entity("CountryProduct", b =>
+                {
+                    b.Property<int>("CountriesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CountriesId", "ProductsId");
+
+                    b.HasIndex("ProductsId");
+
+                    b.ToTable("CountryProduct");
+                });
+
+            modelBuilder.Entity("ProductSize", b =>
+                {
+                    b.Property<int>("ProductsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SizesId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductsId", "SizesId");
+
+                    b.HasIndex("SizesId");
+
+                    b.ToTable("ProductSize");
+                });
+
             modelBuilder.Entity("AdminRole", b =>
                 {
                     b.HasOne("Core.Areas.Dashboard.Entities.Admin", null)
@@ -686,6 +811,21 @@ namespace Infrastructure.Data.Migrations
                     b.HasOne("Core.Areas.Dashboard.Entities.Role", null)
                         .WithMany()
                         .HasForeignKey("RolesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ColorProduct", b =>
+                {
+                    b.HasOne("Core.Areas.Dashboard.Entities.Color", null)
+                        .WithMany()
+                        .HasForeignKey("ColorsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Areas.Dashboard.Entities.Product", null)
+                        .WithMany()
+                        .HasForeignKey("ProductsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -774,6 +914,40 @@ namespace Infrastructure.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("ManuFact");
+                });
+
+            modelBuilder.Entity("Core.Areas.Dashboard.Entities.Product", b =>
+                {
+                    b.HasOne("Core.Areas.Dashboard.Entities.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Areas.Dashboard.Entities.SizeTranslation", null)
+                        .WithMany("Products")
+                        .HasForeignKey("SizeTranslationId");
+
+                    b.HasOne("Core.Areas.Dashboard.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Core.Areas.Dashboard.Entities.ProductTranslation", b =>
+                {
+                    b.HasOne("Core.Areas.Dashboard.Entities.Product", "Product")
+                        .WithMany("Translations")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Core.Areas.Dashboard.Entities.SettingTranslation", b =>
@@ -872,6 +1046,36 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("Weight");
                 });
 
+            modelBuilder.Entity("CountryProduct", b =>
+                {
+                    b.HasOne("Core.Areas.Dashboard.Entities.Country", null)
+                        .WithMany()
+                        .HasForeignKey("CountriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Areas.Dashboard.Entities.Product", null)
+                        .WithMany()
+                        .HasForeignKey("ProductsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ProductSize", b =>
+                {
+                    b.HasOne("Core.Areas.Dashboard.Entities.Product", null)
+                        .WithMany()
+                        .HasForeignKey("ProductsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Areas.Dashboard.Entities.Size", null)
+                        .WithMany()
+                        .HasForeignKey("SizesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Core.Areas.Dashboard.Entities.Category", b =>
                 {
                     b.Navigation("Childs");
@@ -910,6 +1114,11 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("Translations");
                 });
 
+            modelBuilder.Entity("Core.Areas.Dashboard.Entities.Product", b =>
+                {
+                    b.Navigation("Translations");
+                });
+
             modelBuilder.Entity("Core.Areas.Dashboard.Entities.Setting", b =>
                 {
                     b.Navigation("Translations");
@@ -923,6 +1132,11 @@ namespace Infrastructure.Data.Migrations
             modelBuilder.Entity("Core.Areas.Dashboard.Entities.Size", b =>
                 {
                     b.Navigation("Translations");
+                });
+
+            modelBuilder.Entity("Core.Areas.Dashboard.Entities.SizeTranslation", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("Core.Areas.Dashboard.Entities.State", b =>

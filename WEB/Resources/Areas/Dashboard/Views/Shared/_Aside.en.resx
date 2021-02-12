@@ -21,9 +21,42 @@
         <value>Control Panel</value>
     </data>
     <data name="main" xml:space="preserve">
-        <value>Main</value>
+        <value>Home</value>
     </data>
     <data name="users" xml:space="preserve">
         <value>Users</value>
+    </data>
+    <data name="categories" xml:space="preserve">
+        <value>Categories</value>
+    </data>
+    <data name="countries" xml:space="preserve">
+        <value>Countries</value>
+    </data>
+    <data name="colors" xml:space="preserve">
+        <value>Colors</value>
+    </data>
+    <data name="cities" xml:space="preserve">
+        <value>Cities</value>
+    </data>
+    <data name="malls" xml:space="preserve">
+        <value>Malls</value>
+    </data>
+    <data name="manufacts" xml:space="preserve">
+        <value>Manu Facts</value>
+    </data>
+    <data name="shippings" xml:space="preserve">
+        <value>Shippings</value>
+    </data>
+    <data name="sizes" xml:space="preserve">
+        <value>Sizes</value>
+    </data>
+    <data name="states" xml:space="preserve">
+        <value>States</value>
+    </data>
+    <data name="trademarks" xml:space="preserve">
+        <value>Trademarks</value>
+    </data>
+    <data name="weights" xml:space="preserve">
+        <value>Weights</value>
     </data>
 </root>

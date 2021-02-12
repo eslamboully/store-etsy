@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Core.Resources {
+namespace WEB.Resources.Areas.Dashboard.Views.Products {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Core.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class SharedResource {
+    internal class Edit {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal SharedResource() {
+        internal Edit() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Core.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Core.Resources.SharedResource", typeof(SharedResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WEB.Resources.Areas.Dashboard.Views.Products.Edit", typeof(Edit).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,108 +63,90 @@ namespace Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Address_Required {
+        internal static string add_new {
             get {
-                return ResourceManager.GetString("Address_Required", resourceCulture);
+                return ResourceManager.GetString("add_new", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Country_Required {
+        internal static string code {
             get {
-                return ResourceManager.GetString("Country_Required", resourceCulture);
+                return ResourceManager.GetString("code", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Description_Required {
+        internal static string countries {
             get {
-                return ResourceManager.GetString("Description_Required", resourceCulture);
+                return ResourceManager.GetString("countries", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Email_Required {
+        internal static string create {
             get {
-                return ResourceManager.GetString("Email_Required", resourceCulture);
+                return ResourceManager.GetString("create", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Exist_Email {
+        internal static string dashboard {
             get {
-                return ResourceManager.GetString("Exist_Email", resourceCulture);
+                return ResourceManager.GetString("dashboard", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string First_Name_Required {
+        internal static string description {
             get {
-                return ResourceManager.GetString("First_Name_Required", resourceCulture);
+                return ResourceManager.GetString("description", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Last_Name_Required {
+        internal static string logo {
             get {
-                return ResourceManager.GetString("Last_Name_Required", resourceCulture);
+                return ResourceManager.GetString("logo", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Password_Required {
+        internal static string mob {
             get {
-                return ResourceManager.GetString("Password_Required", resourceCulture);
+                return ResourceManager.GetString("mob", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Phone_Required {
+        internal static string save_info {
             get {
-                return ResourceManager.GetString("Phone_Required", resourceCulture);
+                return ResourceManager.GetString("save_info", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Price_Required {
+        internal static string title {
             get {
-                return ResourceManager.GetString("Price_Required", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string SizeString_Required {
-            get {
-                return ResourceManager.GetString("SizeString_Required", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string Title_Required {
-            get {
-                return ResourceManager.GetString("Title_Required", resourceCulture);
+                return ResourceManager.GetString("title", resourceCulture);
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿@model WEB.Areas.Dashboard.ViewModels.CategoryViewModel
+﻿@using Microsoft.AspNetCore.Routing
+@model WEB.Areas.Dashboard.ViewModels.ProductViewModel
 @{
     Layout = "_Layout";
     string appLocale = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
@@ -37,7 +38,7 @@
                       <!-- /.card-header -->
                       <!-- form start -->
                       <span asp-validation-summary="All"></span>
-                      <form asp-action="Create" asp-controller="Categories" asp-area="Dashboard" method="post" role="form" enctype="multipart/form-data">
+                      <form asp-action="Edit" asp-controller="Categories" asp-area="Dashboard" method="post" role="form" enctype="multipart/form-data">
                         <div class="card-body">
                           <div class="card">
                             <div class="card-header d-flex p-0">
@@ -69,11 +70,6 @@
                                       <textarea asp-for="Translations[i].Description" class="form-control" id="exampleInputEmail1" placeholder="@Localizer["description"]"></textarea>
                                       <span asp-validation-for="Translations[i].Description" class="text-danger"></span>
                                     </div>
-                                    <div class="form-group">
-                                      <label for="exampleInputEmail1">@Localizer["words"] (@locale.EnglishName)</label>
-                                      <textarea asp-for="Translations[i].Words" class="form-control" id="exampleInputEmail1" placeholder="@Localizer["words"]"></textarea>
-                                      <span asp-validation-for="Translations[i].Words" class="text-danger"></span>
-                                    </div>
                                   </div>
                                   <input type="hidden" asp-for="Translations[i].Locale" value="@locale.Name">
                                   second = false;
@@ -82,15 +78,10 @@
                               </div>
                               <hr/>
                               <div class="form-group">
-                                <label for="exampleInputEmail1">@Localizer["logo"]</label>
+                                <label>@Localizer["logo"]</label>
+                                <img src="~/dashboard/uploads/categories/@Model.PhotoName" style="width: 70px;height: 70px;border-radius: 11px;">
                                 <input type="file" asp-for="Photo" class="form-control" id="exampleInputEmail1" placeholder="@Localizer["logo"]">
                                 <span asp-validation-for="Photo" class="text-danger"></span>
-                              </div>
-                              <div class="form-group">
-                                <label>@Localizer["category"]</label>
-                                <input type="hidden" class="parentid" asp-for="ParentId" value="">
-                                <div id="jstree_categories_div"></div>
-                                <span asp-validation-for="ParentId" class="text-danger"></span>
                               </div>
                                 <!-- /.tab-content -->
                               </div><!-- /.card-body -->
@@ -130,7 +121,7 @@
             url : `/dashboard/categories/get-categories`,
             method: "post",
             dataType: "json",
-            data: {},
+            data: {parentId: $('.parentid').val(),categoryId: '@(Context.GetRouteData().Values["id"])'},
             success: function (data)
             {
               $('#jstree_categories_div').jstree({ 'core' : {

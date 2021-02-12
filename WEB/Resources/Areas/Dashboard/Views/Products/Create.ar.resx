@@ -59,4 +59,52 @@
     <data name="words" xml:space="preserve">
         <value>الكلمات الدلالية</value>
     </data>
+    <data name="products" xml:space="preserve">
+        <value>المنتجات</value>
+    </data>
+    <data name="product" xml:space="preserve">
+        <value>المنتج</value>
+    </data>
+    <data name="main_info" xml:space="preserve">
+        <value>المعلومات الاساسية</value>
+    </data>
+    <data name="prices_and_offers" xml:space="preserve">
+        <value>الاسعار والعروض</value>
+    </data>
+    <data name="price" xml:space="preserve">
+        <value>السعر</value>
+    </data>
+    <data name="price_offer" xml:space="preserve">
+        <value>سعر العرض ( ان وجد )</value>
+    </data>
+    <data name="start_offer_at" xml:space="preserve">
+        <value>تاريخ بدأ العرض</value>
+    </data>
+    <data name="end_offer_at" xml:space="preserve">
+        <value>تاريخ نهاية العرض</value>
+    </data>
+    <data name="reason" xml:space="preserve">
+        <value>سبب الرفض</value>
+    </data>
+    <data name="product_props" xml:space="preserve">
+        <value>خصائص المنتج</value>
+    </data>
+    <data name="size_string" xml:space="preserve">
+        <value>اكتب المقاس </value>
+    </data>
+    <data name="available_sizes" xml:space="preserve">
+        <value>المقاسات المتاحة</value>
+    </data>
+    <data name="colors" xml:space="preserve">
+        <value>الالوان</value>
+    </data>
+    <data name="return" xml:space="preserve">
+        <value>عوده</value>
+    </data>
+    <data name="redirect_to_design" xml:space="preserve">
+        <value>حفظ وانتقال الي التصميم</value>
+    </data>
+    <data name="save_to_next_time" xml:space="preserve">
+        <value>حفظ واكمال</value>
+    </data>
 </root>
