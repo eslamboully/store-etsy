@@ -47,10 +47,10 @@
     <data name="City_Required" xml:space="preserve">
         <value>المدينة / المحافظة مطلوبة</value>
     </data>
-    <data name="Price_Required" xml:space="preserve">
-        <value>السعر مطلوب</value>
-    </data>
     <data name="SizeString_Required" xml:space="preserve">
         <value>نص المقاس مطلوب</value>
+    </data>
+    <data name="Price_Required" xml:space="preserve">
+        <value>السعر مطلوب</value>
     </data>
 </root>
