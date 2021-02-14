@@ -43,27 +43,31 @@ namespace WEB.Areas.Dashboard.Controllers
         [HttpPost("create")]
         public IActionResult Create(ProductViewModel model)
         {
-            return Ok(model);
             if (ModelState.IsValid)
             {
                 string fileName = "default.jpg";
-                // var row = new Product
-                // {
-                //     Price = model.Price,
-                //     PriceOffer = model.PriceOffer,
-                //     StartOfferAt = model.StartOfferAt,
-                //     EndOfferAt = model.EndOfferAt,
-                //     Status = 1,
-                //     SizeString = model.SizeString,
-                //     CategoryId = model.CategoryId,
-                //     Sizes = model.Sizes
-                // };
+                var row = new Product
+                {
+                    Price = model.Price,
+                    PriceOffer = model.PriceOffer,
+                    StartOfferAt = model.StartOfferAt,
+                    EndOfferAt = model.EndOfferAt,
+                    Status = 1,
+                    CategoryId = model.CategoryId,
+                    SizeString = model.SizeString,
+                    Sizes = _context.Sizes.Where( s => model.SizesArray.Contains(s.Id)).ToList(),
+                    Countries = _context.Countries.Where( s => model.CountriesArray.Contains(s.Id)).ToList(),
+                    Colors = _context.Colors.Where( s => model.ColorsArray.Contains(s.Id)).ToList()
+                };
                 
-                // _context.Products.Add(row);
+                _context.Products.Add(row);
                 _context.SaveChanges();
                 TempData["msg"] = _localizer["added_successfully"].Value;
                 return RedirectToAction("Index");
             }
+            model.Sizes = _context.Sizes.Include("Translations").ToList();
+            model.Countries = _context.Countries.Include("Translations").ToList();
+            model.Colors = _context.Colors.Include("Translations").ToList();
             return View(model);
         }
         
