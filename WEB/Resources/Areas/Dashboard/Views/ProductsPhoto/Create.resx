@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <root>
     <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
@@ -18,21 +18,6 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="first_name" xml:space="preserve">
-        <value />
-    </data>
-    <data name="last_name" xml:space="preserve">
-        <value />
-    </data>
-    <data name="email" xml:space="preserve">
-        <value />
-    </data>
-    <data name="operations" xml:space="preserve">
-        <value />
-    </data>
-    <data name="dashboard" xml:space="preserve">
-        <value />
-    </data>
     <data name="countries" xml:space="preserve">
         <value />
     </data>
@@ -42,82 +27,88 @@
     <data name="title" xml:space="preserve">
         <value />
     </data>
+    <data name="description" xml:space="preserve">
+        <value />
+    </data>
+    <data name="dashboard" xml:space="preserve">
+        <value />
+    </data>
+    <data name="create" xml:space="preserve">
+        <value />
+    </data>
     <data name="mob" xml:space="preserve">
         <value />
     </data>
     <data name="code" xml:space="preserve">
         <value />
     </data>
+    <data name="save_info" xml:space="preserve">
+        <value />
+    </data>
     <data name="logo" xml:space="preserve">
         <value />
     </data>
-    <data name="print" xml:space="preserve">
+    <data name="choose_country" xml:space="preserve">
         <value />
     </data>
-    <data name="excel" xml:space="preserve">
+    <data name="products" xml:space="preserve">
         <value />
     </data>
-    <data name="delete_all" xml:space="preserve">
+    <data name="product" xml:space="preserve">
         <value />
     </data>
-    <data name="no_data" xml:space="preserve">
+    <data name="main_info" xml:space="preserve">
         <value />
     </data>
-    <data name="countries_table" xml:space="preserve">
-        <value />
-    </data>
-    <data name="country" xml:space="preserve">
-        <value />
-    </data>
-    <data name="cities_table" xml:space="preserve">
-        <value />
-    </data>
-    <data name="states_table" xml:space="preserve">
-        <value />
-    </data>
-    <data name="states" xml:space="preserve">
-        <value />
-    </data>
-    <data name="city" xml:space="preserve">
-        <value />
-    </data>
-    <data name="categories_table" xml:space="preserve">
-        <value />
-    </data>
-    <data name="categories" xml:space="preserve">
-        <value />
-    </data>
-    <data name="edit" xml:space="preserve">
-        <value />
-    </data>
-    <data name="delete" xml:space="preserve">
-        <value />
-    </data>
-    <data name="products_table" xml:space="preserve">
-        <value />
-    </data>
-    <data name="added_successfully" xml:space="preserve">
+    <data name="prices_and_offers" xml:space="preserve">
         <value />
     </data>
     <data name="price" xml:space="preserve">
         <value />
     </data>
-    <data name="category" xml:space="preserve">
+    <data name="price_offer" xml:space="preserve">
         <value />
     </data>
-    <data name="photo" xml:space="preserve">
+    <data name="start_offer_at" xml:space="preserve">
         <value />
     </data>
-    <data name="status" xml:space="preserve">
+    <data name="end_offer_at" xml:space="preserve">
         <value />
     </data>
-    <data name="not_activated" xml:space="preserve">
+    <data name="reason" xml:space="preserve">
         <value />
     </data>
-    <data name="activated" xml:space="preserve">
+    <data name="product_props" xml:space="preserve">
         <value />
     </data>
-    <data name="not_agree_for_requirements" xml:space="preserve">
+    <data name="size_string" xml:space="preserve">
+        <value />
+    </data>
+    <data name="available_sizes" xml:space="preserve">
+        <value />
+    </data>
+    <data name="colors" xml:space="preserve">
+        <value />
+    </data>
+    <data name="return" xml:space="preserve">
+        <value />
+    </data>
+    <data name="redirect_to_design" xml:space="preserve">
+        <value />
+    </data>
+    <data name="save_to_next_time" xml:space="preserve">
+        <value />
+    </data>
+    <data name="save" xml:space="preserve">
+        <value />
+    </data>
+    <data name="productsphotos" xml:space="preserve">
+        <value />
+    </data>
+    <data name="design_photo" xml:space="preserve">
+        <value />
+    </data>
+    <data name="save_design" xml:space="preserve">
         <value />
     </data>
 </root>

@@ -14,7 +14,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-@(appLocale == "ar" ? "left" : "right")">
               <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Dashboard" asp-area="Dashboard">@Localizer["dashboard"]</a></li>
-              <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Categories" asp-area="Dashboard">@Localizer["products"]</a></li>
+              <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Products" asp-area="Dashboard">@Localizer["products"]</a></li>
               <li class="breadcrumb-item active">@Localizer["create"]</li>
             </ol>
           </div><!-- /.col -->
@@ -40,8 +40,8 @@
                             <span asp-validation-summary="All"></span>
                             <form asp-action="Create" asp-controller="Products" asp-area="Dashboard" method="post" role="form" enctype="multipart/form-data">
                               <div style="margin-bottom: 10px">
-                                  <button name="save" class="btn btn-info"><i class="fa fa-save"></i> @Localizer["save_to_next_time"]</button>
-                                  <button name="save_and_continue" class="btn btn-success"><i class="fa fa-save"></i> @Localizer["redirect_to_design"]</button>
+                                  <button type="submit" name="save" value="save" class="btn btn-info"><i class="fa fa-save"></i> @Localizer["save_to_next_time"]</button>
+                                  <button type="submit" name="saveAndContinue" value="saveAndContinue" class="btn btn-success"><i class="fa fa-save"></i> @Localizer["redirect_to_design"]</button>
                                   <a asp-action="Index" asp-controller="Products" asp-area="Dashboard" class="btn btn-default"><i class="fa fa-arrow-left"></i> @Localizer["return"]</a>
                               </div>
                               <ul class="nav nav-tabs ml-auto">
@@ -165,8 +165,8 @@
                               </div><!-- /.card-body -->
                               <div class="card-footer">
                               <div style="margin-bottom: 10px">
-                                  <button name="save" class="btn btn-info"><i class="fa fa-save"></i> @Localizer["save_to_next_time"]</button>
-                                  <button name="save_and_continue" class="btn btn-success"><i class="fa fa-save"></i> @Localizer["redirect_to_design"]</button>
+                                  <button type="submit" name="save" value="save" class="btn btn-info"><i class="fa fa-save"></i> @Localizer["save_to_next_time"]</button>
+                                  <button type="submit" name="saveAndContinue" value="saveAndContinue" class="btn btn-success"><i class="fa fa-save"></i> @Localizer["redirect_to_design"]</button>
                                   <a asp-action="Index" asp-controller="Products" asp-area="Dashboard" class="btn btn-default"><i class="fa fa-arrow-left"></i> @Localizer["return"]</a>
                               </div>
                             </div>

@@ -1,11 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-            
-        </xsd:element>
-    </xsd:schema>
+﻿<root>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -18,106 +11,79 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="email" xml:space="preserve">
+        <value>البريد الالكتروني</value>
+    </data>
     <data name="first_name" xml:space="preserve">
-        <value />
+        <value>الاسم الاول</value>
     </data>
     <data name="last_name" xml:space="preserve">
-        <value />
-    </data>
-    <data name="email" xml:space="preserve">
-        <value />
+        <value>الاسم الاخير</value>
     </data>
     <data name="operations" xml:space="preserve">
-        <value />
-    </data>
-    <data name="dashboard" xml:space="preserve">
-        <value />
+        <value>العمليات</value>
     </data>
     <data name="countries" xml:space="preserve">
-        <value />
+        <value>الدول</value>
+    </data>
+    <data name="dashboard" xml:space="preserve">
+        <value>لوحة التحكم</value>
     </data>
     <data name="add_new" xml:space="preserve">
-        <value />
+        <value>اضف جديد</value>
     </data>
     <data name="title" xml:space="preserve">
-        <value />
+        <value>المنطقة</value>
     </data>
     <data name="mob" xml:space="preserve">
-        <value />
+        <value>الرمز</value>
     </data>
     <data name="code" xml:space="preserve">
-        <value />
+        <value>كود الدولة</value>
     </data>
     <data name="logo" xml:space="preserve">
-        <value />
+        <value>شعار الدولة</value>
     </data>
     <data name="print" xml:space="preserve">
-        <value />
+        <value>طباعة</value>
     </data>
     <data name="excel" xml:space="preserve">
-        <value />
+        <value>استيراد اكسل</value>
     </data>
     <data name="delete_all" xml:space="preserve">
-        <value />
+        <value>حذف الكل</value>
     </data>
     <data name="no_data" xml:space="preserve">
-        <value />
+        <value>للأسف لا يوجد بيانات حتي الان</value>
     </data>
     <data name="countries_table" xml:space="preserve">
-        <value />
+        <value>جدول الدول</value>
     </data>
     <data name="country" xml:space="preserve">
-        <value />
+        <value>البلد</value>
     </data>
     <data name="cities_table" xml:space="preserve">
-        <value />
+        <value>جدول المدن / المحافظات</value>
     </data>
     <data name="states_table" xml:space="preserve">
-        <value />
+        <value>جدول الاحياء / المناطق</value>
     </data>
     <data name="states" xml:space="preserve">
-        <value />
+        <value>الاحياء / المناطق</value>
     </data>
     <data name="city" xml:space="preserve">
-        <value />
+        <value>المدينة</value>
     </data>
     <data name="categories_table" xml:space="preserve">
-        <value />
+        <value>جدول الاقسام</value>
     </data>
     <data name="categories" xml:space="preserve">
-        <value />
+        <value>الاقسام</value>
     </data>
     <data name="edit" xml:space="preserve">
-        <value />
+        <value>تعديل</value>
     </data>
     <data name="delete" xml:space="preserve">
-        <value />
-    </data>
-    <data name="products_table" xml:space="preserve">
-        <value />
-    </data>
-    <data name="added_successfully" xml:space="preserve">
-        <value />
-    </data>
-    <data name="price" xml:space="preserve">
-        <value />
-    </data>
-    <data name="category" xml:space="preserve">
-        <value />
-    </data>
-    <data name="photo" xml:space="preserve">
-        <value />
-    </data>
-    <data name="status" xml:space="preserve">
-        <value />
-    </data>
-    <data name="not_activated" xml:space="preserve">
-        <value />
-    </data>
-    <data name="activated" xml:space="preserve">
-        <value />
-    </data>
-    <data name="not_agree_for_requirements" xml:space="preserve">
-        <value />
+        <value>حذف</value>
     </data>
 </root>

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model System.Collections.Generic.List<Core.Areas.Dashboard.Entities.Product>
+@{
     Layout = "_Layout";
     string appLocale = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
     ViewData["Title"] = "Store | Home";
@@ -9,12 +10,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">@Localizer["categories_table"]</h1>
+            <h1 class="m-0 text-dark">@Localizer["products_table"]</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-@(appLocale == "ar" ? "left" : "right")">
               <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Dashboard" asp-area="Dashboard">@Localizer["dashboard"]</a></li>
-              <li class="breadcrumb-item active">@Localizer["categories"]</li>
+              <li class="breadcrumb-item active">@Localizer["products"]</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -26,74 +27,123 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-                      <div class="col-12">
-                        <div class="card">
-                          <div class="card-header changable-buttons">
-                            
-                          </div>
-                          <!-- /.card-header -->
-                          <div class="card-body">
-                            @if (TempData["msg"] != null)
-                            {
-                              <div class="alert alert-success">@TempData["msg"]</div>
-                            }
-                            <div id="jstree_categories_div"></div>
-                          </div>
-                          <!-- /.card-body -->
-                        </div>
-                        <!-- /.card -->
-                      <!-- /.card -->
-                      </div>
-                      <!-- /.col -->
-                    </div>
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <a asp-action="Create" asp-controller="Products" asp-area="Dashboard" class="btn btn-success"><i class="fa fa-plus"></i> @Localizer["add_new"]</a>
+                <a href="" class="btn btn-info btn-md" onclick="window.print()"><i class="fa fa-print"></i> @Localizer["print"] </a>
+                <a href="" class="btn btn-primary btn-md"><i class="fa fa-plus"></i> @Localizer["excel"] </a>
+                <a href="" class="btn btn-default btn-md"><i class="fa fa-refresh"></i></a>
+                <a href="" class="btn btn-danger btn-md"><i class="fa fa-trash"></i> @Localizer["delete_all"] </a>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                @if (Model.Count == 0)
+                {
+                  <h1>@Localizer["no_data"]</h1>
+                }
+                else
+                {
+                  @if (TempData["msg"] != null)
+                {
+                  <div class="alert alert-success">@TempData["msg"]</div>
+                }
+                <table id="async-table" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>@Localizer["title"]</th>
+                    <th>@Localizer["price"]</th>
+                    <th>@Localizer["category"]</th>
+                    <th>@Localizer["photo"]</th>
+                    <th>@Localizer["status"]</th>
+                    <th>@Localizer["operations"]</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  @foreach (var row in Model)
+                  {
+                    <tr>
+                      <td>@row.Id</td>
+                      <td>@row.Translatable(appLocale).Title</td>
+                      <td>@row.Price</td>
+                      <td>@row.Category.Translatable(appLocale).Title</td>
+                      <td><img src="~/dashboard/uploads/products/@row.Photo" style="width: 70px;height: 70px"></td>
+                      <td>
+                        @if (row.Status == 0)
+                        {
+                          <button class="btn btn-info disabled btn-sm">@Localizer["not_activated"]</button>
+                        }
+                        else if(row.Status == 1)
+                        {
+                          <button class="btn btn-primary disabled btn-sm">@Localizer["activated"]</button>
+                        } else if (row.Status == 2)
+                        {
+                          <button class="btn btn-warning disabled btn-sm">@Localizer["not_agree_for_requirements"]</button>
+                        }
+                      </td>
+                      <td>
+                        <form asp-action="Delete" asp-route-id="@row.Id" method="post">
+                          <a asp-action="Create" asp-controller="ProductsPhoto" asp-route-id="@row.Id" class="btn btn-dark"><i class="fa fa-file-image-o"></i></a>
+                          <a asp-action="Edit" asp-route-id="@row.Id" class="btn btn-success"><i class="fa fa-edit"></i></a>
+                          <button type="submit" onclick="return confirm('Are You Sure ?')" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                        </form>
+                      </td>
+                    </tr>
+                  }
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>#</th>
+                    <th>@Localizer["title"]</th>
+                    <th>@Localizer["price"]</th>
+                    <th>@Localizer["category"]</th>
+                    <th>@Localizer["photo"]</th>
+                    <th>@Localizer["status"]</th>
+                    <th>@Localizer["operations"]</th>
+                  </tr>
+                  </tfoot>
+                </table>
+                }
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
       </div>
     </section>
 <!-- /.content -->
 
 @section css
 {
-    <link rel="stylesheet" href="~/dashboard/dist/jstree/dist/themes/default/style.min.css" />
+  <link rel="stylesheet" href="~/dashboard/plugins/datatables/dataTables.bootstrap4.css">
 }
 
 @section js
 {
-  <script src="~/dashboard/dist/jstree/dist/jstree.min.js"></script>
+  <script src="~/dashboard/plugins/datatables/jquery.dataTables.js"></script>
+  <script src="~/dashboard/plugins/datatables/dataTables.bootstrap4.js"></script>
+  
   <script>
-    $(document).ready(function(e) {
-          $.ajax({
-            url : `/dashboard/categories/get-categories`,
-            method: "post",
-            dataType: "json",
-            data: {},
-            success: function (data)
-            {
-              // start on success
-              if (data.length > 0) {
-                $('#jstree_categories_div').jstree({ 'core' : {
-                  'data' : data
-                }});
-              } 
-              else 
-              {
-                $('.card-body').html(`<h1>${'@Localizer["no_data"]'}</h1>`);
+    $(function () {
+      $('#async-table').DataTable({
+          "language": {
+              "paginate": {
+                  "next": "Next",
+                  "previous" : "Previous"
               }
-              // end on success
-            }// end of function success
-          });
-        });
-    
-    // on click on node
-    $('#jstree_categories_div').on('changed.jstree', function (e, data) {
-        let buttonsDiv = $(".changable-buttons");
-        buttonsDiv.html(``);
-        buttonsDiv.append(`
-          <form action="/dashboard/categories/delete/${data.selected}" method="post">
-          <a href="/dashboard/categories/edit/${data.selected}" class="btn btn-success"><i class="fa fa-edit"></i> ${'@Localizer["edit"]'}</a>
-          <button type="submit" onclick="return confirm('Are you sure ?')" class="btn btn-danger"><i class="fa fa-trash"></i> ${'@Localizer["delete"]'}</button>
-          </form>
-        `);
-        
-        console.log(data.selected);
+          },
+        "info" : false,
+        "paging": true,
+        "lengthChange": false,
+        "searching": true,
+        "ordering": true,
+        "autoWidth": false
       });
+    });
   </script>
+  
 }

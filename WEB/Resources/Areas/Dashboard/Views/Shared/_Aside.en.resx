@@ -59,4 +59,7 @@
     <data name="weights" xml:space="preserve">
         <value>Weights</value>
     </data>
+    <data name="products" xml:space="preserve">
+        <value>Products</value>
+    </data>
 </root>

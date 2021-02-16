@@ -59,4 +59,7 @@
     <data name="weights" xml:space="preserve">
         <value>الاوزان</value>
     </data>
+    <data name="products" xml:space="preserve">
+        <value>التصميمات</value>
+    </data>
 </root>

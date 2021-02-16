@@ -33,7 +33,7 @@
         <value>اضف جديد</value>
     </data>
     <data name="title" xml:space="preserve">
-        <value>المنطقة</value>
+        <value>عنوان التصميم</value>
     </data>
     <data name="mob" xml:space="preserve">
         <value>الرمز</value>
@@ -85,5 +85,32 @@
     </data>
     <data name="delete" xml:space="preserve">
         <value>حذف</value>
+    </data>
+    <data name="products_table" xml:space="preserve">
+        <value>جدول المنتجات المصممة</value>
+    </data>
+    <data name="added_successfully" xml:space="preserve">
+        <value>تمت الاضافة بنجاح</value>
+    </data>
+    <data name="price" xml:space="preserve">
+        <value>السعر</value>
+    </data>
+    <data name="category" xml:space="preserve">
+        <value>القسم</value>
+    </data>
+    <data name="photo" xml:space="preserve">
+        <value>التصميم</value>
+    </data>
+    <data name="status" xml:space="preserve">
+        <value>الحالة</value>
+    </data>
+    <data name="not_activated" xml:space="preserve">
+        <value>غير مفعل</value>
+    </data>
+    <data name="activated" xml:space="preserve">
+        <value>مفعل</value>
+    </data>
+    <data name="not_agree_for_requirements" xml:space="preserve">
+        <value>موقوفة</value>
     </data>
 </root>

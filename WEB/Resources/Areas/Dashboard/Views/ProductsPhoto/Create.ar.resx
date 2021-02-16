@@ -12,7 +12,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="add_new" xml:space="preserve">
-        <value>تعديل بيانات التصميم ( المنتج )</value>
+        <value>اضف جديد</value>
     </data>
     <data name="countries" xml:space="preserve">
         <value>الدول</value>
@@ -36,7 +36,7 @@
         <value>كود الدولة</value>
     </data>
     <data name="save_info" xml:space="preserve">
-        <value>ذهاب الي التصميم</value>
+        <value>حفظ البيانات</value>
     </data>
     <data name="logo" xml:space="preserve">
         <value>صورة القسم</value>
@@ -99,27 +99,24 @@
         <value>الالوان</value>
     </data>
     <data name="return" xml:space="preserve">
-        <value>عودة</value>
+        <value>عوده</value>
     </data>
     <data name="redirect_to_design" xml:space="preserve">
-        <value>الذهاب لتعديل التصميم</value>
+        <value>حفظ وانتقال الي التصميم</value>
     </data>
     <data name="save_to_next_time" xml:space="preserve">
-        <value>حفظ التعديلات</value>
+        <value>حفظ واكمال</value>
     </data>
-    <data name="old_design" xml:space="preserve">
-        <value>رؤية التصميم القديم</value>
+    <data name="save" xml:space="preserve">
+        <value>حفظ التصميم</value>
     </data>
-    <data name="activated" xml:space="preserve">
-        <value>مفعلة</value>
+    <data name="productsphotos" xml:space="preserve">
+        <value>تصميم المنتج</value>
     </data>
-    <data name="status" xml:space="preserve">
-        <value>الحالة</value>
+    <data name="design_photo" xml:space="preserve">
+        <value>ارفع التصميم من هنا</value>
     </data>
-    <data name="not_activated" xml:space="preserve">
-        <value>غير مفعلة</value>
-    </data>
-    <data name="not_agree_for_requirements" xml:space="preserve">
-        <value>موقوفة لمخالفة الشروط</value>
+    <data name="save_design" xml:space="preserve">
+        <value>رفع التصميم</value>
     </data>
 </root>

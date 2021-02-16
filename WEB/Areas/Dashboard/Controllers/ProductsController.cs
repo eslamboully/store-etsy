@@ -25,7 +25,12 @@ namespace WEB.Areas.Dashboard.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            var rows = _context.Products
+                .Include(p => p.Translations)
+                .Include(p=>p.Category)
+                .Include(p=>p.Category.Translations)
+                .ToList();
+            return View(rows);
         }
 
         [HttpGet("create")]
@@ -41,7 +46,7 @@ namespace WEB.Areas.Dashboard.Controllers
         }
 
         [HttpPost("create")]
-        public IActionResult Create(ProductViewModel model)
+        public IActionResult Create(ProductViewModel model,string save,string saveAndContinue)
         {
             if (ModelState.IsValid)
             {
@@ -52,18 +57,32 @@ namespace WEB.Areas.Dashboard.Controllers
                     PriceOffer = model.PriceOffer,
                     StartOfferAt = model.StartOfferAt,
                     EndOfferAt = model.EndOfferAt,
-                    Status = 1,
+                    Status = 0,
                     CategoryId = model.CategoryId,
                     SizeString = model.SizeString,
                     Sizes = _context.Sizes.Where( s => model.SizesArray.Contains(s.Id)).ToList(),
                     Countries = _context.Countries.Where( s => model.CountriesArray.Contains(s.Id)).ToList(),
-                    Colors = _context.Colors.Where( s => model.ColorsArray.Contains(s.Id)).ToList()
+                    Colors = _context.Colors.Where( s => model.ColorsArray.Contains(s.Id)).ToList(),
+                    Translations = model.Translations,
+                    Photo = fileName
                 };
                 
                 _context.Products.Add(row);
                 _context.SaveChanges();
                 TempData["msg"] = _localizer["added_successfully"].Value;
-                return RedirectToAction("Index");
+                
+                if (!string.IsNullOrEmpty(save))
+                {
+                    return RedirectToAction("Create","ProductsPhoto",new {id = row.Id});
+                } else if (!string.IsNullOrEmpty(saveAndContinue))
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return RedirectToAction("Index");
+                }
+                
             }
             model.Sizes = _context.Sizes.Include("Translations").ToList();
             model.Countries = _context.Countries.Include("Translations").ToList();
@@ -74,12 +93,28 @@ namespace WEB.Areas.Dashboard.Controllers
         [HttpGet("edit/{id}")]
         public IActionResult Edit(int id)
         {
-            var row = _context.Products.Include("Translations").SingleOrDefault(c=>c.Id == id);
+            var row = _context.Products.Include("Translations")
+                .Include(s=>s.Sizes)
+                .Include(s=>s.Countries)
+                .Include(s=>s.Colors)
+                .SingleOrDefault(c=>c.Id == id);
             var model = new ProductViewModel
             {
+                Sizes = _context.Sizes.Include("Translations").ToList(),
+                Countries = _context.Countries.Include("Translations").ToList(),
+                Colors = _context.Colors.Include("Translations").ToList(),
+                Price = row.Price,
+                PriceOffer = row.PriceOffer,
+                StartOfferAt = row.StartOfferAt,
+                EndOfferAt = row.EndOfferAt,
+                CategoryId = row.CategoryId,
+                SizeString = row.SizeString,
                 Translations = row.Translations,
-                PhotoName = row.Photo,
-                Photo = null
+                Reason = row.Reason,
+                Status = row.Status,
+                SizesArray = row.Sizes.Select(s=>s.Id).ToList(),
+                CountriesArray = row.Countries.Select(s=>s.Id).ToList(),
+                ColorsArray = row.Colors.Select(s=>s.Id).ToList()
             };
             return View(model);
         }
@@ -87,31 +122,48 @@ namespace WEB.Areas.Dashboard.Controllers
         [HttpPost("edit/{id}")]
         public IActionResult Edit(int id,ProductViewModel model)
         {
+            var row = _context.Products.Include("Translations")
+                .Include(s=>s.Sizes)
+                .Include(s=>s.Countries)
+                .Include(s=>s.Colors)
+                .SingleOrDefault(c=>c.Id == id);
+            
             if (ModelState.IsValid)
             {
-                var row = _context.Products.Include("Translations").SingleOrDefault(c=>c.Id == id);
-                // Update Logo
-                string fileName = row.Photo;
-                if (model.Photo != null)
-                {
-                    fileName = Guid.NewGuid().ToString() + Path.GetExtension(model.Photo.FileName);
-                    string savePath = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot/dashboard/uploads/categories",fileName);
-                    using(var stream=new FileStream(savePath, FileMode.Create))
-                    {
-                        model.Photo.CopyTo(stream);
-                        if (row.Photo != "default.jpg")
-                        {
-                            System.IO.File.Delete(Path.Combine("wwwroot/dashboard/uploads/countries",row.Photo)); 
-                        }
-                    }
-                }
-                
+                row.Price = model.Price;
+                row.PriceOffer = model.PriceOffer;
+                row.StartOfferAt = model.StartOfferAt;
+                row.EndOfferAt = model.EndOfferAt;
+                row.CategoryId = model.CategoryId;
+                row.SizeString = model.SizeString;
+                row.Status = model.Status;
+                row.Reason = model.Reason;
+                row.Sizes = _context.Sizes.Where(s => model.SizesArray.Contains(s.Id)).ToList();
+                row.Countries = _context.Countries.Where(s => model.CountriesArray.Contains(s.Id)).ToList();
+                row.Colors = _context.Colors.Where(s => model.ColorsArray.Contains(s.Id)).ToList();
                 row.Translations = model.Translations;
-                row.Photo = fileName;
+                
                 _context.SaveChanges();
                 TempData["msg"] = _localizer["edited_successfully"].Value;
+                
                 return RedirectToAction("Index");
+            
             }
+            
+            model.Sizes = _context.Sizes.Include("Translations").ToList();
+            model.Countries = _context.Countries.Include("Translations").ToList();
+            model.Colors = _context.Colors.Include("Translations").ToList();
+            model.Price = row.Price;
+            model.PriceOffer = row.PriceOffer;
+            model.StartOfferAt = row.StartOfferAt;
+            model.EndOfferAt = row.EndOfferAt;
+            model.CategoryId = row.CategoryId;
+            model.SizeString = row.SizeString;
+            model.Translations = row.Translations;
+            model.SizesArray = _context.Sizes.Select(s => s.Id).ToList();
+            model.CountriesArray = _context.Countries.Select(s => s.Id).ToList();
+            model.ColorsArray = _context.Colors.Select(s => s.Id).ToList();
+            
             return View(model);
         }
 

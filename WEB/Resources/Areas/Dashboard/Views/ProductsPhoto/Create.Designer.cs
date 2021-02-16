@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WEB.Resources.Areas.Dashboard.Views.Products {
+namespace WEB.Resources.Areas.Dashboard.Views.ProductsPhoto {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace WEB.Resources.Areas.Dashboard.Views.Products {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Edit {
+    internal class Create {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Edit() {
+        internal Create() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace WEB.Resources.Areas.Dashboard.Views.Products {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WEB.Resources.Areas.Dashboard.Views.Products.Edit", typeof(Edit).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WEB.Resources.Areas.Dashboard.Views.ProductsPhoto.Create", typeof(Create).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

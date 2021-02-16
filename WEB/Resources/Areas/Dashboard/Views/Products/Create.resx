@@ -99,4 +99,7 @@
     <data name="save_to_next_time" xml:space="preserve">
         <value />
     </data>
+    <data name="old_design" xml:space="preserve">
+        <value />
+    </data>
 </root>

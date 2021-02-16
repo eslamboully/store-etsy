@@ -243,22 +243,45 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-archive"></i>
+              <p>
+                @Localizer["weights"]
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a asp-action="Index" asp-controller="Weights" asp-area="Dashboard" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>@Localizer["weights"]</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a asp-action="Create" asp-controller="Weights" asp-area="Dashboard" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>@Localizer["add_new"]</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fa fa-archive"></i>
+                  <i class="nav-icon fa fa-shopping-cart"></i>
                   <p>
-                    @Localizer["weights"]
+                    @Localizer["products"]
                     <i class="right fa fa-angle-left"></i>
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a asp-action="Index" asp-controller="Weights" asp-area="Dashboard" class="nav-link">
+                    <a asp-action="Index" asp-controller="Products" asp-area="Dashboard" class="nav-link">
                       <i class="fa fa-circle-o nav-icon"></i>
-                      <p>@Localizer["weights"]</p>
+                      <p>@Localizer["products"]</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a asp-action="Create" asp-controller="Weights" asp-area="Dashboard" class="nav-link">
+                    <a asp-action="Create" asp-controller="Products" asp-area="Dashboard" class="nav-link">
                       <i class="fa fa-circle-o nav-icon"></i>
                       <p>@Localizer["add_new"]</p>
                     </a>

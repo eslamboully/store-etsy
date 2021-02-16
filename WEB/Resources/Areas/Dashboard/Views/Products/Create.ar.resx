@@ -107,4 +107,7 @@
     <data name="save_to_next_time" xml:space="preserve">
         <value>حفظ واكمال</value>
     </data>
+    <data name="old_design" xml:space="preserve">
+        <value>رؤية التصميم القديم</value>
+    </data>
 </root>

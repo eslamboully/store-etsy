@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WEB.Resources.Areas.Dashboard.Views.Products {
+namespace WEB.Resources.Areas.Dashboard.Views.ProductsPhoto {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace WEB.Resources.Areas.Dashboard.Views.Products {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WEB.Resources.Areas.Dashboard.Views.Products.Edit", typeof(Edit).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WEB.Resources.Areas.Dashboard.Views.ProductsPhoto.Edit", typeof(Edit).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -66,24 +66,6 @@ namespace WEB.Resources.Areas.Dashboard.Views.Products {
         internal static string add_new {
             get {
                 return ResourceManager.GetString("add_new", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string available_sizes {
-            get {
-                return ResourceManager.GetString("available_sizes", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string choose_country {
-            get {
-                return ResourceManager.GetString("choose_country", resourceCulture);
             }
         }
         
@@ -135,27 +117,9 @@ namespace WEB.Resources.Areas.Dashboard.Views.Products {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string end_offer_at {
-            get {
-                return ResourceManager.GetString("end_offer_at", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
         internal static string logo {
             get {
                 return ResourceManager.GetString("logo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string main_info {
-            get {
-                return ResourceManager.GetString("main_info", resourceCulture);
             }
         }
         
@@ -171,90 +135,9 @@ namespace WEB.Resources.Areas.Dashboard.Views.Products {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string price {
-            get {
-                return ResourceManager.GetString("price", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string price_offer {
-            get {
-                return ResourceManager.GetString("price_offer", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string prices_and_offers {
-            get {
-                return ResourceManager.GetString("prices_and_offers", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string product {
-            get {
-                return ResourceManager.GetString("product", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string product_props {
-            get {
-                return ResourceManager.GetString("product_props", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string products {
-            get {
-                return ResourceManager.GetString("products", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string reason {
-            get {
-                return ResourceManager.GetString("reason", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
         internal static string save_info {
             get {
                 return ResourceManager.GetString("save_info", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string size_string {
-            get {
-                return ResourceManager.GetString("size_string", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string start_offer_at {
-            get {
-                return ResourceManager.GetString("start_offer_at", resourceCulture);
             }
         }
         

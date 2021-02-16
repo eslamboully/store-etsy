@@ -8,6 +8,7 @@
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FControllers_002FCountriesController/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FControllers_002FMallsController/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FControllers_002FManuFactsController/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FControllers_002FProductsController/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FControllers_002FShippingsController/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FControllers_002FSizesController/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FControllers_002FStatesController/@EntryIndexedValue">False</s:Boolean>
@@ -39,9 +40,13 @@
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FViews_002FManuFacts_002FCreate/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FViews_002FManuFacts_002FEdit/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FViews_002FManuFacts_002FIndex/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FViews_002FProductsPhoto_002FCreate/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FViews_002FProducts_002FCreate/@EntryIndexedValue">False</s:Boolean>
+	
+	
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FViews_002FProducts_002FIndex/@EntryIndexedValue">True</s:Boolean>
+	
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FViews_002FProducts_002FEdit/@EntryIndexedValue">False</s:Boolean>
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FViews_002FProducts_002FIndex/@EntryIndexedValue">False</s:Boolean>
 	
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FViews_002FShared_002F_005FAside/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WEB_002FResources_002FAreas_002FDashboard_002FViews_002FShared_002F_005FLayout/@EntryIndexedValue">False</s:Boolean>
