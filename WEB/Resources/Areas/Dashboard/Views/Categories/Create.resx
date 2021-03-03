@@ -66,4 +66,10 @@
     <data name="words" xml:space="preserve">
         <value />
     </data>
+    <data name="colors" xml:space="preserve">
+        <value />
+    </data>
+    <data name="choose_color" xml:space="preserve">
+        <value />
+    </data>
 </root>

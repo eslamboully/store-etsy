@@ -97,12 +97,19 @@
   <script type="text/javascript" src="~/dashboard/dist/image-editor/theme/black-theme.js"></script>
   <script>
             // Image editor
+            let locale_ar_or_en = {
+              // override default English locale to your custom
+              Crop: 'Обзрезать', // as result default English inscription will be translated into Russian
+              Download: '545qewqw'
+              // etc...
+            };
             let imageEditor = new tui.ImageEditor('#tui-image-editor-container', {
               includeUI: {
                 loadImage: {
                   path: '@Url.Content("~/dashboard/uploads/categories/"+@Model.CategoryPhoto)',
                   name: 'MyLogo',
                 },
+                locale: locale_ar_or_en,
                 theme: blackTheme, // or whiteTheme
                 initMenu: 'filter',
                 menuBarPosition: 'bottom',

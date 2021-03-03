@@ -9,7 +9,7 @@ namespace Core.Areas.Dashboard.Entities
         public string Degree { get; set; }
         public virtual List<Product> Products { get; set; }
         public virtual IList<ColorTranslation> Translations { get; set; }
-        
+        public IList<CategoryColor> CategoryColors { get; set; }
         public ColorTranslation Translatable(string locale)
         {
             var row = Translations.SingleOrDefault(t => t.Locale == locale);

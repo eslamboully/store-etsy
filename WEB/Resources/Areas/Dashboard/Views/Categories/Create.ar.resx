@@ -59,4 +59,10 @@
     <data name="words" xml:space="preserve">
         <value>الكلمات الدلالية</value>
     </data>
+    <data name="colors" xml:space="preserve">
+        <value>الالوان</value>
+    </data>
+    <data name="choose_color" xml:space="preserve">
+        <value>اختر اللون</value>
+    </data>
 </root>

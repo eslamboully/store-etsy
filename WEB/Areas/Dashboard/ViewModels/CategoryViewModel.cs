@@ -14,5 +14,6 @@ namespace WEB.Areas.Dashboard.ViewModels
         public int? ParentId { get; set; }
         public IFormFile Photo { get; set; }
         public string PhotoName { get; set; }
+        public IList<Color> Colors { get; set; }
     }
 }

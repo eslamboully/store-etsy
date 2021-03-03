@@ -111,6 +111,24 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("Core.Areas.Dashboard.Entities.CategoryColor", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ColorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Photo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CategoryId", "ColorId");
+
+                    b.HasIndex("ColorId");
+
+                    b.ToTable("CategoryColors");
+                });
+
             modelBuilder.Entity("Core.Areas.Dashboard.Entities.CategoryTranslation", b =>
                 {
                     b.Property<int>("Id")
@@ -431,6 +449,7 @@ namespace Infrastructure.Data.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Locale")
@@ -839,6 +858,25 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("Parent");
                 });
 
+            modelBuilder.Entity("Core.Areas.Dashboard.Entities.CategoryColor", b =>
+                {
+                    b.HasOne("Core.Areas.Dashboard.Entities.Category", "Category")
+                        .WithMany("CategoryColors")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Areas.Dashboard.Entities.Color", "Color")
+                        .WithMany("CategoryColors")
+                        .HasForeignKey("ColorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Color");
+                });
+
             modelBuilder.Entity("Core.Areas.Dashboard.Entities.CategoryTranslation", b =>
                 {
                     b.HasOne("Core.Areas.Dashboard.Entities.Category", "Category")
@@ -1076,6 +1114,8 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Core.Areas.Dashboard.Entities.Category", b =>
                 {
+                    b.Navigation("CategoryColors");
+
                     b.Navigation("Childs");
 
                     b.Navigation("Translations");
@@ -1090,6 +1130,8 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Core.Areas.Dashboard.Entities.Color", b =>
                 {
+                    b.Navigation("CategoryColors");
+
                     b.Navigation("Translations");
                 });
 

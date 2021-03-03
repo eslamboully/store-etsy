@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using Core.Areas.Dashboard.Entities;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Localization;
 using WEB.Areas.Dashboard.ViewModels;
 
@@ -30,11 +33,14 @@ namespace WEB.Areas.Dashboard.Controllers
         [HttpGet("create")]
         public IActionResult Create()
         {
-            return View();
+            return View(new CategoryViewModel
+            {
+                Colors = _context.Colors.Include(c=>c.Translations).ToList()
+            });
         }
 
         [HttpPost("create")]
-        public IActionResult Create(CategoryViewModel model)
+        public IActionResult Create(CategoryViewModel model,int[] colors,IFormFile[] colorsPhotos)
         {
             if (ModelState.IsValid)
             {
@@ -54,11 +60,38 @@ namespace WEB.Areas.Dashboard.Controllers
                     Translations = model.Translations,
                     Photo = fileName
                 };
+                // Add Categories
                 _context.Categories.Add(row);
                 _context.SaveChanges();
+                
+                // Add Category-Color Relation
+                if ((colors.Length != 0 && colorsPhotos.Length != 0) && colors.Length == colorsPhotos.Length)
+                {
+                    for(int i=0;i<colors.Length;i++)
+                    {
+                        // save colorPhoto
+                        fileName = Guid.NewGuid().ToString() + Path.GetExtension(colorsPhotos[i].FileName);
+                        string savePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/dashboard/uploads/categories-colors", fileName);
+                        using (var stream = new FileStream(savePath, FileMode.Create)) { colorsPhotos[i].CopyTo(stream); }
+                    
+                        // save Relation
+                        _context.CategoryColors.Add(new CategoryColor
+                        {
+                            CategoryId = row.Id,
+                            ColorId = colors[i],
+                            Photo = fileName
+                        });
+                    }
+
+                    _context.SaveChanges();
+                }
+                
+                
                 TempData["msg"] = _localizer["added_successfully"].Value;
                 return RedirectToAction("Index");
             }
+
+            model.Colors = _context.Colors.Include(c => c.Translations).ToList();
             return View(model);
         }
         
@@ -101,6 +134,7 @@ namespace WEB.Areas.Dashboard.Controllers
                 row.Translations = model.Translations;
                 row.Photo = fileName;
                 _context.SaveChanges();
+                
                 TempData["msg"] = _localizer["edited_successfully"].Value;
                 return RedirectToAction("Index");
             }

@@ -11,6 +11,8 @@ namespace Core.Areas.Dashboard.Entities
         public virtual Category Parent { get; set; }
         public virtual IList<CategoryTranslation> Translations { get; set; }
         public virtual IList<Category> Childs { get; set; }
+        
+        public IList<CategoryColor> CategoryColors { get; set; }
         public CategoryTranslation Translatable(string locale)
         {
             var row = Translations.SingleOrDefault(t => t.Locale == locale);

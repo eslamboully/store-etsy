@@ -82,6 +82,20 @@
                               </div>
                               <hr/>
                               <div class="form-group">
+                                <label for="">@Localizer["colors"]</label>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <select class="form-control choose_color">
+                                      <option class="first_choose_color_option" value="">@Localizer["choose_color"]</option>
+                                      @foreach (var color in Model.Colors)
+                                      {
+                                        <option data-id="@color.Id" data-color="@color.Degree" value="@color.Id">@color.Translatable(appLocale).Title</option>
+                                      }
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-group">
                                 <label for="exampleInputEmail1">@Localizer["logo"]</label>
                                 <input type="file" asp-for="Photo" class="form-control" id="exampleInputEmail1" placeholder="@Localizer["logo"]">
                                 <span asp-validation-for="Photo" class="text-danger"></span>
@@ -125,20 +139,45 @@
 {
   <script src="~/dashboard/dist/jstree/dist/jstree.min.js"></script>
   <script>
-    $(document).ready(function(e) {
-          $.ajax({
-            url : `/dashboard/categories/get-categories`,
-            method: "post",
-            dataType: "json",
-            data: {},
-            success: function (data)
-            {
-              $('#jstree_categories_div').jstree({ 'core' : {
-                  'data' : data
-              }});
-            }
-          });
+     // add input after choosing colors
+    $(document).on('change','.choose_color',function (){
+      let colorId = $(this).val()
+      // disabled the chooses options
+      $(".choose_color option:selected").attr('disabled','disabled');
+      $(this).parent().parent().append(`
+        <div class="col-md-6">
+            <input type="hidden" name="colors[]" value="${colorId}">
+            <input type="file" name="colorsPhotos" class="form-control">
+        </div>
+      `);
+
+      // add another select color
+      let colorsSelectBox = $(this).parent().html();
+      $(this).parent().parent().append(`
+        <div class="col-md-6">
+            ${colorsSelectBox}
+        </div>
+      `);
+      
+      // disabled the old select box
+      $(this).attr("disabled","disabled");
+    });
+    
+    // get categories
+    $(document).ready(function(e) {      
+      $.ajax({
+          url : `/dashboard/categories/get-categories`,
+          method: "post",
+          dataType: "json",
+          data: {},
+          success: function (data)
+          {
+            $('#jstree_categories_div').jstree({ 'core' : {
+                'data' : data
+            }});
+          }
         });
+      });
     
     // on click on node
     $('#jstree_categories_div').on('changed.jstree', function (e, data) {

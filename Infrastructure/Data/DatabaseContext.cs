@@ -79,6 +79,19 @@ namespace Infrastructure.Data
                 .WithOne(c => c.Color)
                 .HasForeignKey(c => c.ColorId)
                 .OnDelete(DeleteBehavior.Cascade);
+            // Category-Color
+            modelBuilder.Entity<CategoryColor>()
+                .HasKey(bc => new { bc.CategoryId, bc.ColorId });
+            
+            modelBuilder.Entity<CategoryColor>()
+                .HasOne(bc => bc.Category)
+                .WithMany(b => b.CategoryColors)
+                .HasForeignKey(bc => bc.CategoryId);
+            
+            modelBuilder.Entity<CategoryColor>()
+                .HasOne(bc => bc.Color)
+                .WithMany(c => c.CategoryColors)
+                .HasForeignKey(bc => bc.ColorId);
             // Sizes
             modelBuilder.Entity<Size>().HasMany(c => c.Translations)
                 .WithOne(c => c.Size)
@@ -134,6 +147,9 @@ namespace Infrastructure.Data
         // Colors
         public DbSet<Color> Colors { get; set; }
         public DbSet<ColorTranslation> ColorTranslations { get; set; }
+        
+        // Category-Color
+        public DbSet<CategoryColor> CategoryColors { get; set; }
         // Sizes
         public DbSet<Size> Sizes { get; set; }
         public DbSet<SizeTranslation> SizeTranslations { get; set; }
