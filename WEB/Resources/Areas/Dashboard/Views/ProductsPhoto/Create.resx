@@ -111,4 +111,88 @@
     <data name="save_design" xml:space="preserve">
         <value />
     </data>
+    <data name="main" xml:space="preserve">
+        <value />
+    </data>
+    <data name="exists_colors" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Layers" xml:space="preserve">
+        <value />
+    </data>
+    <data name="views" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Drawing_areas" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Elements" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Templates" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Designs" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Markers" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Text" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Image" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Upload" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Qr code" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Snap Grid" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Ruler" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Magnifying" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Download" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Reset" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Select a category" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Click or drop your files here" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Add text" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Print" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Scope" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Canvas" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Layers and elements" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Format" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Width" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Unit" xml:space="preserve">
+        <value />
+    </data>
 </root>

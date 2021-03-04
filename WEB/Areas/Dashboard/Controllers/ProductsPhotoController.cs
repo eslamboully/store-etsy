@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using Core.Areas.Dashboard.Entities;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Authorization;
@@ -110,5 +111,31 @@ namespace WEB.Areas.Dashboard.Controllers
             TempData["msg"] = _localizer["deleted_successfully"].Value;
             return RedirectToAction("Create");
         }
+
+        [HttpPost("get-product-photos")]
+        public IActionResult GetProductPhotos(int productId)
+        {
+            string culture = Thread.CurrentThread.CurrentCulture.Name;
+            var product = _context.Products.First(c => c.Id == productId);
+            var categoryColors = _context.CategoryColors
+                .Include("Color")
+                .Where(c => c.CategoryId == product.CategoryId)
+                .Select(c=> new
+                {
+                    name = c.Color.Degree,
+                    color = c.Color.Degree,
+                    image = new
+                    {
+                        url = "https://localhost:5001/dashboard/uploads/categories-colors/"+c.Photo,
+                        name = "dsadsa",
+                    },
+                    active = true
+                })
+                .ToArray();
+            return Json(new
+            {
+                colors = categoryColors
+            });
+    }
     }
 }

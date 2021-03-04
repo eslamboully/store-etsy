@@ -1,4 +1,5 @@
-﻿@model WEB.Areas.Dashboard.ViewModels.ProductPhotoViewModel
+﻿@using Microsoft.AspNetCore.Routing
+@model WEB.Areas.Dashboard.ViewModels.ProductPhotoViewModel
 @{
     Layout = "_Layout";
     string appLocale = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
@@ -60,7 +61,7 @@
                       <div class="card-body">
                         <span asp-validation-summary="All"></span>
                             <div class="card-body" style="height: 55rem; direction: ltr;text-align: left">
-                              <div id="tui-image-editor-container"></div>
+                              <div id="asuka-editor-container"></div>
                             </div><!-- /.card-body -->
                       </div>
                     </div>
@@ -75,7 +76,7 @@
 @section css
 {
   <link type="text/css" href="https://uicdn.toast.com/tui-color-picker/v2.2.6/tui-color-picker.css" rel="stylesheet"/>
-  <link rel="stylesheet" href="~/dashboard/dist/image-editor/tui-image-editor.css"/>
+  <link rel="stylesheet" href="~/dashboard/dist/asukadesigner/asukadesigner.min.css">
 }
 
 @section js
@@ -92,34 +93,138 @@
   <script
     type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
-  <script src="~/dashboard/dist/image-editor/tui-image-editor.js"></script>
-  <script type="text/javascript" src="~/dashboard/dist/image-editor/theme/white-theme.js"></script>
-  <script type="text/javascript" src="~/dashboard/dist/image-editor/theme/black-theme.js"></script>
+  <script src="~/dashboard/dist/asukadesigner/asukadesigner.min.js"></script>
+
   <script>
-            // Image editor
-            let locale_ar_or_en = {
-              // override default English locale to your custom
-              Crop: 'Обзрезать', // as result default English inscription will be translated into Russian
-              Download: '545qewqw'
-              // etc...
-            };
-            let imageEditor = new tui.ImageEditor('#tui-image-editor-container', {
-              includeUI: {
-                loadImage: {
-                  path: '@Url.Content("~/dashboard/uploads/categories/"+@Model.CategoryPhoto)',
-                  name: 'MyLogo',
-                },
-                locale: locale_ar_or_en,
-                theme: blackTheme, // or whiteTheme
-                initMenu: 'filter',
-                menuBarPosition: 'bottom',
-              },
-              cssMaxWidth: 1200,
-              cssMaxHeight: 900,
-              usageStatistics: false,
-            });
-            window.onresize = function () {
-              imageEditor.ui.resizeEditor();
-            };
-          </script>
+      $(document).ready(function(e) {
+        $.ajax({
+                  url : `/dashboard/ProductsPhoto/get-product-photos`,
+                  method: "post",
+                  dataType: "json",
+                  data: {productId: '@(Context.GetRouteData().Values["id"])'},
+                  success: function (data)
+                  {
+                    // start on success
+                    if (data.colors.length > 0) {
+                      let options = {
+                        mode: 'frontend',
+                        navigation: 'thumbnail',
+                        designs: [
+                              {
+                                  "src": "https://www.flaticon.com/svg/vstatic/svg/4244/4244328.svg?token=exp=1614827434~hmac=32e9fff01af518e41d61765cb176b8fb",
+                                  "name": "Cup",
+                                  "categories": ["جوائز"],
+                                  "price": 0,
+                                  "parameters": {}
+                              },
+                              {
+                                  "src": "https://www.flaticon.com/svg/vstatic/svg/4244/4244385.svg?token=exp=1614827434~hmac=ca087a61b2e555d06577da8e72202638",
+                                  "name": "Bomb",
+                                  "categories": ["قنابل"],
+                                  "price": 0,
+                                  "parameters": {}
+                              },
+                              {
+                                  "src": "https://www.flaticon.com/svg/vstatic/svg/2746/2746533.svg?token=exp=1614827537~hmac=51e198758bab2b6ed024b08b384ceae8",
+                                  "name": "Corona",
+                                  "categories": ["فيروسات"],
+                                  "price": 0,
+                                  "parameters": {}
+                              },
+                              {
+                                  "src": "https://www.flaticon.com/svg/vstatic/svg/2746/2746547.svg?token=exp=1614827537~hmac=d5af8674cfeb4a25cff5f36e472fface",
+                                  "name": "Warning Virus",
+                                  "categories": ["Virus"],
+                                  "price": 0,
+                                  "parameters": {}
+                              },
+                            ],
+                        designsCategories: [
+                          {
+                            value: 'فيروسات',
+                          },
+                          {
+                            value: 'قنابل',
+                          },
+                          {
+                            value: 'جوائز',
+                          },
+                        ],
+                        fontFamily: {
+                                google: [
+                                   'Pacifico',
+                                   'Droid Sans',
+                                   'Droid Serif',
+                                   'sans-serif',
+                                   'Reem Kufi',
+                                   'Almarai',
+                                   'Cairo',
+                                   'Lalezar',
+                                   'Rakkas',
+                                   'Vibes',
+                                ],
+                                system: [
+                                  'Arial',
+                                ],
+                                files: [
+                                   
+                                ]
+                            },
+                        locale: 'ar',
+                        translations: {
+                                   ar: {
+                                       "Layers": '@Localizer["Layers"]',
+                                       "Views" : '@Localizer["Views"]',
+                                       "Drawing areas": '@Localizer["Drawing_areas"]',
+                                       "Elements" : '@Localizer["Elements"]',
+                                       "Templates" : '@Localizer["Templates"]',
+                                       "Designs" : '@Localizer["Designs"]',
+                                       "Markers" : '@Localizer["Markers"]',
+                                       "Text" : '@Localizer["Text"]',
+                                       "Image" : '@Localizer["Image"]',
+                                       "Upload" : '@Localizer["Upload"]',
+                                       "Qr code" : '@Localizer["Qr code"]',
+                                       "Snap grid" : '@Localizer["Snap Grid"]',
+                                       "Ruler" : '@Localizer["Ruler"]',
+                                       "Magnifying glass" : '@Localizer["Magnifying"]',
+                                       "Download" : '@Localizer["Download"]',
+                                       "Print" : '@Localizer["Print"]',
+                                       "Reset" : '@Localizer["Reset"]',
+                                       "Select a category" : '@Localizer["Select a category"]',
+                                       "Click or drop your files here" : '@Localizer["Click or drop your files here"]',
+                                       "Add text" : '@Localizer["Add text"]',
+                                       "Scope" : '@Localizer["Scope"]',
+                                       "Canvas" : '@Localizer["Canvas"]',
+                                       "Layers and elements" : '@Localizer["Layers and elements"]',
+                                       "Format" : '@Localizer["Format"]',
+                                       "Width" : '@Localizer["Width"]',
+                                       "Unit" : '@Localizer["Unit"]',
+                                   },
+                                }
+                      };
+                     
+                      let instance = new AsukaDesigner('#asuka-editor-container', options); // Create an instance of the main plugin class
+                      
+                      instance.designer().addView('Front', {width: 700, height: 700}) // Access the designer class and all his methods
+                      instance.designer().addElement("Front Design", null /* or category name */, null /* or icon URL */, [
+                          {
+                              name: '@Localizer["exists_colors"]',
+                              variations: data.colors,
+                              active: true
+                          },
+                      ]) // Access the designer class and all his methods
+                      instance.layout()
+                      instance.layout().setLocale('ar');
+                      instance.util() // Access the util class and all his methods
+                    } 
+                    else 
+                    {
+                      $('.card-body').html(`<h1>${'@Localizer["no_data"]'}</h1>`);
+                    }
+                    // end on success
+                  }// end of function success
+                });
+      });
+     
+  </script>
 }

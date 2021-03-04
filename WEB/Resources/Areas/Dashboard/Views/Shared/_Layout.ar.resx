@@ -14,4 +14,7 @@
     <data name="dashboard" xml:space="preserve">
         <value>لوحة التحكم</value>
     </data>
+    <data name="site" xml:space="preserve">
+        <value>ذهاب الي الموقع</value>
+    </data>
 </root>

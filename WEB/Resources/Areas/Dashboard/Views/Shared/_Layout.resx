@@ -21,4 +21,7 @@
     <data name="dashboard" xml:space="preserve">
         <value />
     </data>
+    <data name="site" xml:space="preserve">
+        <value />
+    </data>
 </root>
